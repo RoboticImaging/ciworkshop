@@ -4,10 +4,13 @@ Static site for the NSW Computational Imaging Workshop, 16 February 2027.
 
 ## Files
 
-- `index.html` — the whole site (self-contained, no build step, no JS deps)
+- 'layout.js' - the various sections and structure of the webpage 
+- 'contents.js' - text related to each layer section
+- 'style.css' - webpage design
+- 'visual.js' - fun visuals embeded in the page
+- `index.html` — the site construction
 - `CNAME` — tells GitHub Pages to serve at `ciworkshop.au`
-
-That's it. Everything is in `index.html` — fonts come from Google Fonts, CSS and SVG are inline.
+  (additional files: lens.png -used by visual.js)
 
 ## Deploy on GitHub Pages
 
