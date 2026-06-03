@@ -171,12 +171,12 @@
   ════════════════════════════════════════════════════════════ */
 
   /* ── ★ TUNE: lens rig parameters ─── */
-  const LENS_SIZE_LARGE = 180;   /* px — top and bottom lens diameter      */
-  const LENS_SIZE_SMALL =  90;   /* px — middle lens diameter              */
-  const LENS_GAP        =  12;   /* px — resting gap around middle lens    */
+  const LENS_SIZE_LARGE = 220;   /* px — top and bottom lens diameter      */
+  const LENS_SIZE_SMALL = 120;   /* px — middle lens diameter              */
+  const LENS_GAP        =  6;   /* px — resting gap around middle lens    */
   const RIG_WIDTH       = 220;   /* px — fixed column width                */
-  const AMP_TOP         =  60;   /* px — max vertical travel, top lens     */
-  const AMP_BOT         =  60;   /* px — max vertical travel, bottom lens  */
+  const AMP_TOP         =  40;   /* px — max vertical travel, top lens     */
+  const AMP_BOT         =  40;   /* px — max vertical travel, bottom lens  */
   const BREAKPOINT      = 900;   /* px — hide rig below this viewport width */
 
   /* ── ★ TUNE: ray diagram parameters ─── */
@@ -186,7 +186,7 @@
 
   /* ── ★ TUNE: thin lens focal lengths (px) ─── */
   /* Positive = converging. Tune these to taste.  */
-  const F1 = 220;   /* top lens focal length    */
+  const F1 = 280;   /* top lens focal length    */
   const F2 = 120;   /* middle lens focal length */
   const F3 = 200;   /* bottom lens focal length */
 
