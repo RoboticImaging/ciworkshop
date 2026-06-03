@@ -1,0 +1,1097 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>NSW Computational Imaging Workshop — 16 February 2027</title>
+<meta name="description" content="The inaugural NSW Computational Imaging Workshop. A regional forum for researchers, engineers and students working at the intersection of optics, sensing and computation. Greater Sydney, 16 February 2027.">
+<meta property="og:title" content="NSW Computational Imaging Workshop">
+<meta property="og:description" content="Inaugural regional forum for computational imaging research in NSW & the ACT. Free to attend. 16 February 2027.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://ciworkshop.au">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,300..700&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --bg:        #0e1014;
+  --bg-soft:   #14171c;
+  --bg-elev:   #1a1e25;
+  --rule:      #262b34;
+  --rule-soft: #1c2028;
+  --text:      #e6e8ec;
+  --text-soft: #aab0bb;
+  --muted:     #6d7585;
+  --accent:    #7ec4e3;        /* soft optical cyan */
+  --accent-deep: #4f9cc2;
+  --highlight: #f0c674;
+}
+
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+  font-weight: 400;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  background-image:
+    radial-gradient(ellipse at top left, rgba(126,196,227,0.04) 0%, transparent 50%),
+    radial-gradient(ellipse at bottom right, rgba(126,196,227,0.03) 0%, transparent 50%);
+  background-attachment: fixed;
+}
+
+::selection { background: var(--accent); color: var(--bg); }
+
+a {
+  color: var(--accent);
+  text-decoration: none;
+  border-bottom: 1px solid rgba(126,196,227,0.3);
+  transition: color .15s, border-color .15s;
+}
+a:hover { color: #a8d8ee; border-bottom-color: #a8d8ee; }
+
+.serif {
+  font-family: "Source Serif 4", "Source Serif Pro", Georgia, serif;
+}
+
+/* —————————————————————————————————— layout */
+
+.wrap {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 0 32px;
+}
+
+@media (max-width: 640px) {
+  .wrap { padding: 0 20px; }
+  body { font-size: 15.5px; }
+}
+
+/* —————————————————————————————————— top bar */
+
+.topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 26px 0 0 0;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  color: var(--text-soft);
+}
+
+.topbar .mark { color: var(--text); font-weight: 600; }
+.topbar nav a {
+  margin-left: 28px;
+  border: none;
+  color: var(--text-soft);
+  font-weight: 400;
+}
+.topbar nav a:hover { color: var(--accent); }
+
+@media (max-width: 720px) {
+  .topbar nav { display: none; }
+}
+
+/* —————————————————————————————————— hero */
+
+.hero {
+  position: relative;
+  padding: 80px 0 100px 0;
+  border-bottom: 1px solid var(--rule);
+  overflow: hidden;
+}
+
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1.45fr 1fr;
+  gap: 60px;
+  align-items: end;
+}
+
+@media (max-width: 880px) {
+  .hero-grid { grid-template-columns: 1fr; gap: 44px; }
+}
+
+.eyebrow {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 28px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+.eyebrow::before {
+  content: "";
+  display: inline-block;
+  width: 28px;
+  height: 1px;
+  background: var(--accent);
+}
+
+h1.title {
+  font-family: "Source Serif 4", Georgia, serif;
+  font-weight: 400;
+  font-size: clamp(42px, 6.5vw, 86px);
+  line-height: 1.02;
+  letter-spacing: -0.015em;
+  margin: 0 0 32px 0;
+  color: var(--text);
+}
+h1.title em {
+  font-style: italic;
+  color: var(--accent);
+  font-weight: 400;
+}
+
+.lede {
+  font-family: "Source Serif 4", Georgia, serif;
+  font-size: clamp(18px, 1.4vw, 21px);
+  line-height: 1.5;
+  font-weight: 400;
+  color: var(--text-soft);
+  max-width: 40ch;
+}
+
+.hero-meta {
+  background: var(--bg-soft);
+  border: 1px solid var(--rule);
+  padding: 26px 28px;
+  border-radius: 2px;
+}
+
+.hero-meta dl {
+  margin: 0;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 12px 24px;
+  font-size: 14px;
+}
+.hero-meta dt {
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-size: 10.5px;
+  font-weight: 600;
+  padding-top: 3px;
+}
+.hero-meta dd {
+  margin: 0;
+  color: var(--text);
+}
+
+.hero-meta .free-badge {
+  display: inline-block;
+  margin-top: 22px;
+  padding: 7px 14px;
+  background: var(--accent);
+  color: var(--bg);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  border-radius: 2px;
+}
+
+/* coded-aperture motif */
+.aperture {
+  position: absolute;
+  right: -70px;
+  top: 50px;
+  width: 300px;
+  height: 300px;
+  opacity: 0.05;
+  pointer-events: none;
+  transform: rotate(-8deg);
+}
+
+@media (max-width: 880px) {
+  .aperture { display: none; }
+}
+
+/* —————————————————————————————————— sections */
+
+section {
+  padding: 90px 0;
+  border-bottom: 1px solid var(--rule);
+}
+
+@media (max-width: 640px) {
+  section { padding: 64px 0; }
+}
+
+.section-head {
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  gap: 60px;
+  margin-bottom: 48px;
+  align-items: start;
+}
+
+@media (max-width: 720px) {
+  .section-head { grid-template-columns: 1fr; gap: 12px; margin-bottom: 32px; }
+}
+
+.section-label {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--muted);
+  padding-top: 16px;
+}
+.section-label .num {
+  color: var(--accent);
+  margin-right: 10px;
+}
+
+.section-title {
+  font-family: "Source Serif 4", Georgia, serif;
+  font-weight: 400;
+  font-size: clamp(30px, 3.8vw, 44px);
+  line-height: 1.1;
+  letter-spacing: -0.01em;
+  margin: 0;
+  max-width: 22ch;
+  color: var(--text);
+}
+.section-title em {
+  font-style: italic;
+  color: var(--accent);
+}
+
+.section-body {
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  gap: 60px;
+}
+
+@media (max-width: 720px) {
+  .section-body { grid-template-columns: 1fr; gap: 24px; }
+}
+
+.prose p {
+  margin: 0 0 20px 0;
+  max-width: 65ch;
+  color: var(--text-soft);
+  font-size: 16px;
+}
+
+.prose p.lead {
+  font-size: 18px;
+  color: var(--text);
+  font-family: "Source Serif 4", Georgia, serif;
+  line-height: 1.5;
+}
+
+/* —————————————————————————————————— topics grid */
+
+.topics {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 0;
+  border-top: 1px solid var(--rule);
+}
+
+.topics li {
+  padding: 24px 24px 28px 0;
+  border-bottom: 1px solid var(--rule);
+  position: relative;
+}
+.topics li + li { border-left: 1px solid var(--rule); padding-left: 24px; }
+@media (max-width: 720px) {
+  .topics li + li { border-left: none; padding-left: 0; }
+}
+
+.topics .topic-num {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  color: var(--accent);
+  display: block;
+  margin-bottom: 10px;
+}
+.topics .topic-name {
+  font-family: "Source Serif 4", Georgia, serif;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 1.25;
+  color: var(--text);
+}
+
+/* —————————————————————————————————— programme */
+
+.programme {
+  border-top: 1px solid var(--rule);
+}
+.programme-item {
+  display: grid;
+  grid-template-columns: 220px 1fr;
+  gap: 40px;
+  padding: 28px 0;
+  border-bottom: 1px solid var(--rule);
+}
+@media (max-width: 640px) {
+  .programme-item { grid-template-columns: 1fr; gap: 8px; padding: 22px 0; }
+}
+.programme-item .pi-label {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--muted);
+  padding-top: 6px;
+}
+.programme-item h3 {
+  margin: 0 0 8px 0;
+  font-family: "Source Serif 4", Georgia, serif;
+  font-weight: 400;
+  font-size: 21px;
+  line-height: 1.25;
+  color: var(--text);
+}
+.programme-item h3 em { font-style: italic; color: var(--accent); }
+.programme-item p {
+  margin: 0;
+  color: var(--text-soft);
+  max-width: 60ch;
+  font-size: 15.5px;
+}
+
+/* —————————————————————————————————— people */
+
+.people {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 28px;
+}
+.person {
+  background: var(--bg-soft);
+  border: 1px solid var(--rule);
+  padding: 22px 22px 24px 22px;
+  border-radius: 2px;
+}
+.person .name {
+  font-family: "Source Serif 4", Georgia, serif;
+  font-weight: 500;
+  font-size: 19px;
+  line-height: 1.25;
+  margin-bottom: 4px;
+  color: var(--text);
+}
+.person .role {
+  font-size: 11.5px;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  color: var(--accent);
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+.person .bio {
+  font-size: 14.5px;
+  color: var(--text-soft);
+  line-height: 1.5;
+}
+.person .ieee {
+  display: inline-block;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  color: var(--accent);
+  margin-top: 10px;
+  border: 1px solid var(--accent-deep);
+  padding: 3px 8px;
+  text-transform: uppercase;
+  border-radius: 2px;
+}
+
+/* —————————————————————————————————— timeline */
+
+.timeline {
+  padding-left: 0;
+  margin: 0;
+  list-style: none;
+}
+.timeline li {
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  gap: 32px;
+  padding: 16px 0;
+  border-bottom: 1px dotted var(--rule);
+}
+@media (max-width: 640px) {
+  .timeline li { grid-template-columns: 1fr; gap: 4px; }
+}
+.timeline .when {
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--accent);
+  padding-top: 4px;
+}
+.timeline .what {
+  font-size: 16px;
+  color: var(--text);
+}
+.timeline li.now {
+  background: linear-gradient(90deg, rgba(126,196,227,0.08), transparent 70%);
+  margin-left: -16px;
+  padding-left: 16px;
+}
+
+/* —————————————————————————————————— get involved */
+
+.cta-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 18px;
+}
+.cta {
+  background: var(--bg-soft);
+  border: 1px solid var(--rule);
+  padding: 26px 26px 28px 26px;
+  border-radius: 2px;
+  transition: border-color .15s, background .15s;
+}
+.cta:hover { border-color: var(--accent-deep); background: var(--bg-elev); }
+.cta h3 {
+  font-family: "Source Serif 4", Georgia, serif;
+  font-weight: 500;
+  font-size: 21px;
+  margin: 0 0 10px 0;
+  color: var(--text);
+}
+.cta p {
+  margin: 0 0 16px 0;
+  color: var(--text-soft);
+  font-size: 15px;
+}
+.cta .cta-action {
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  border: none;
+  border-bottom: 1px solid var(--accent);
+  padding-bottom: 2px;
+}
+
+/* —————————————————————————————————— footer */
+
+footer {
+  padding: 60px 0 70px 0;
+  background: var(--bg-soft);
+  border-top: 1px solid var(--rule);
+  font-size: 13px;
+  line-height: 1.6;
+  color: var(--text-soft);
+}
+footer a { color: var(--accent); border-bottom-color: rgba(126,196,227,0.3); }
+footer a:hover { color: #a8d8ee; border-bottom-color: #a8d8ee; }
+
+.foot-grid {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr 1fr;
+  gap: 48px;
+}
+@media (max-width: 720px) {
+  .foot-grid { grid-template-columns: 1fr; gap: 28px; }
+}
+
+.foot-grid h4 {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin: 0 0 12px 0;
+}
+
+.foot-grid p { margin: 0 0 8px 0; max-width: 38ch; }
+
+.colophon {
+  margin-top: 56px;
+  padding-top: 24px;
+  border-top: 1px solid var(--rule);
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 12px;
+  font-size: 11px;
+  letter-spacing: 0.04em;
+  color: var(--muted);
+}
+
+/* —————————————————————————————————— small touches */
+
+.disclosure {
+  font-size: 14px;
+  color: var(--text-soft);
+  margin-top: 16px;
+  padding: 16px 18px;
+  border: 1px dashed var(--rule);
+  background: var(--bg-soft);
+  border-radius: 2px;
+  max-width: 60ch;
+}
+.disclosure strong { color: var(--text); font-weight: 600; }
+
+/* tiny entrance animation, respect reduced motion */
+@media (prefers-reduced-motion: no-preference) {
+  .hero h1.title,
+  .hero .lede,
+  .hero .hero-meta {
+    opacity: 0;
+    transform: translateY(8px);
+    animation: rise .9s cubic-bezier(0.2, 0.7, 0.2, 1) forwards;
+  }
+  .hero .lede { animation-delay: .12s; }
+  .hero .hero-meta { animation-delay: .22s; }
+  @keyframes rise {
+    to { opacity: 1; transform: translateY(0); }
+  }
+}
+</style>
+</head>
+<body>
+
+<div class="wrap">
+
+  <header class="topbar">
+    <div class="mark">NSW · Computational Imaging Workshop</div>
+    <nav>
+      <a href="#about">About</a>
+      <a href="#programme">Programme</a>
+      <a href="#topics">Topics</a>
+      <a href="#committee">Committee</a>
+<!--      <a href="#involved">Get involved</a>-->
+    </nav>
+  </header>
+
+  <!-- —————————————————————————————————— hero -->
+  <section class="hero">
+
+    <svg class="aperture" viewBox="0 0 11 11" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <g fill="#7ec4e3">
+        <rect x="0" y="0" width="1" height="1"/><rect x="2" y="0" width="1" height="1"/><rect x="3" y="0" width="1" height="1"/><rect x="6" y="0" width="1" height="1"/><rect x="8" y="0" width="1" height="1"/>
+        <rect x="1" y="1" width="1" height="1"/><rect x="4" y="1" width="1" height="1"/><rect x="5" y="1" width="1" height="1"/><rect x="7" y="1" width="1" height="1"/><rect x="10" y="1" width="1" height="1"/>
+        <rect x="0" y="2" width="1" height="1"/><rect x="3" y="2" width="1" height="1"/><rect x="5" y="2" width="1" height="1"/><rect x="6" y="2" width="1" height="1"/><rect x="9" y="2" width="1" height="1"/>
+        <rect x="2" y="3" width="1" height="1"/><rect x="4" y="3" width="1" height="1"/><rect x="7" y="3" width="1" height="1"/><rect x="8" y="3" width="1" height="1"/><rect x="10" y="3" width="1" height="1"/>
+        <rect x="0" y="4" width="1" height="1"/><rect x="1" y="4" width="1" height="1"/><rect x="5" y="4" width="1" height="1"/><rect x="9" y="4" width="1" height="1"/>
+        <rect x="2" y="5" width="1" height="1"/><rect x="3" y="5" width="1" height="1"/><rect x="6" y="5" width="1" height="1"/><rect x="8" y="5" width="1" height="1"/><rect x="10" y="5" width="1" height="1"/>
+        <rect x="0" y="6" width="1" height="1"/><rect x="4" y="6" width="1" height="1"/><rect x="7" y="6" width="1" height="1"/><rect x="9" y="6" width="1" height="1"/>
+        <rect x="1" y="7" width="1" height="1"/><rect x="3" y="7" width="1" height="1"/><rect x="5" y="7" width="1" height="1"/><rect x="8" y="7" width="1" height="1"/>
+        <rect x="0" y="8" width="1" height="1"/><rect x="2" y="8" width="1" height="1"/><rect x="6" y="8" width="1" height="1"/><rect x="7" y="8" width="1" height="1"/><rect x="10" y="8" width="1" height="1"/>
+        <rect x="3" y="9" width="1" height="1"/><rect x="4" y="9" width="1" height="1"/><rect x="8" y="9" width="1" height="1"/><rect x="9" y="9" width="1" height="1"/>
+        <rect x="1" y="10" width="1" height="1"/><rect x="2" y="10" width="1" height="1"/><rect x="5" y="10" width="1" height="1"/><rect x="6" y="10" width="1" height="1"/><rect x="9" y="10" width="1" height="1"/>
+      </g>
+    </svg>
+
+    <div class="eyebrow">Inaugural edition · NSW &amp; ACT</div>
+
+    <div class="hero-grid">
+      <div>
+        <h1 class="title">
+          A regional forum for <em>computational imaging</em>.
+        </h1>
+        <p class="lede">
+          One day in Sydney for the people designing optics, sensors and algorithms together - from inverse problems and Fourier methods to event cameras and end-to-end optics.
+        </p>
+      </div>
+
+      <aside class="hero-meta">
+        <dl>
+          <dt>Date</dt><dd>16 February 2027</dd>
+          <dt>Where</dt><dd>Greater Sydney<br><span style="color:var(--muted)">USyd / WSU Westmead (TBC Aug&nbsp;2026)</span></dd>
+          <dt>Format</dt><dd>Talks, breakouts,<br>posters, council</dd>
+          <dt>Cost</dt><dd>—</dd>
+        </dl>
+        <span class="free-badge">Free to attend</span>
+      </aside>
+    </div>
+  </section>
+
+  <!-- —————————————————————————————————— about -->
+  <section id="about">
+    <div class="section-head">
+      <div class="section-label"><span class="num">01</span>About</div>
+      <h2 class="section-title">Computational imaging deserves <em>a room of its own</em>.</h2>
+    </div>
+
+    <div class="section-body">
+      <div></div>
+      <div class="prose">
+        <p class="lead">
+          Computational imaging is the co-design of optics, sensors, mathematics and computing — extracting information from light beyond what traditional cameras afford. The field underpins advances in medical imaging, astronomy, space, and robotics.
+        </p>
+        <p>
+          Australian optics and photonics research is thriving. But optical engineering and computational imaging — design, fabrication, systems integration, and computational methods — do not receive the same institutional recognition or structured teaching as in the US or Europe. The result is a structural gap: people working on imaging systems across universities, CSIRO, defence, and industry share few formal community touchpoints.
+        </p>
+        <p>
+          Early-career researchers have limited regional venues to present, collaborate, and form a professional identity in the field. Industry lacks an interface with academics working at the edge of imaging research. This workshop is a deliberate attempt to bring that community into one room.
+        </p>
+        <p>
+          A direct precedent is <a href="https://bracewell.science" target="_blank" rel="noopener">Bracewell@70</a> (Macquarie, 2025), which marked seventy years since Ron Bracewell's foundational contributions to Fourier methods in imaging — work done in Australia that shaped aperture synthesis, computed tomography, and image reconstruction. It drew attendees from astronomy, medical imaging, robotics, signal processing and optics, demonstrating clear appetite for focused cross-disciplinary events.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- —————————————————————————————————— programme -->
+  <section id="programme">
+    <div class="section-head">
+      <div class="section-label"><span class="num">02</span>Programme</div>
+      <h2 class="section-title">A full day, built for <em>depth and exchange</em>.</h2>
+    </div>
+
+    <div class="programme">
+      <div class="programme-item">
+        <div class="pi-label">Invited talks</div>
+        <div>
+          <h3>Plenary talks from <em>Australian leaders</em> in the field</h3>
+          <p>A curated set of invited talks covering the breadth of computational imaging — from optical hardware to reconstruction algorithms to translational impact.</p>
+        </div>
+      </div>
+
+      <div class="programme-item">
+        <div class="pi-label">Breakouts</div>
+        <div>
+          <h3>Topic-focused <em>technical workshops</em></h3>
+          <p>Smaller breakout sessions on diffractive optics, neuromorphic sensing, and imaging system modelling, enabling depth beyond a standard talk.</p>
+        </div>
+      </div>
+
+      <div class="programme-item">
+        <div class="pi-label">Posters</div>
+        <div>
+          <h3>Student &amp; early-career <em>poster session</em></h3>
+          <p>A dedicated session for student and ECR work. Open call for abstracts will be announced in late 2026.</p>
+        </div>
+      </div>
+
+      <div class="programme-item">
+        <div class="pi-label">Council</div>
+        <div>
+          <h3>Inaugural Australian Computational Imaging <em>Community Council</em></h3>
+          <p>A structured meeting to set community priorities, long-term direction, and pathways to translational impact. The council established here will take responsibility for governance of subsequent editions.</p>
+        </div>
+      </div>
+
+      <div class="programme-item">
+        <div class="pi-label">Panel</div>
+        <div>
+          <h3>Closing panel: <em>emerging directions</em></h3>
+          <p>An open discussion on where the field, and the Australian community, should head next.</p>
+        </div>
+      </div>
+
+      <div class="programme-item">
+        <div class="pi-label">Social</div>
+        <div>
+          <h3>Informal evening <em>at a nearby venue</em></h3>
+          <p>Continued conversation, less formal. Details closer to the event.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- —————————————————————————————————— topics -->
+  <section id="topics">
+    <div class="section-head">
+      <div class="section-label"><span class="num">03</span>Topics</div>
+      <h2 class="section-title">What we'll cover.</h2>
+    </div>
+
+    <ul class="topics">
+      <li>
+        <span class="topic-num">i.</span>
+        <span class="topic-name">Inverse problems &amp; image reconstruction</span>
+      </li>
+      <li>
+        <span class="topic-num">ii.</span>
+        <span class="topic-name">Diffractive &amp; Fourier optics</span>
+      </li>
+      <li>
+        <span class="topic-num">iii.</span>
+        <span class="topic-name">Neuromorphic &amp; event-based sensing</span>
+      </li>
+      <li>
+        <span class="topic-num">iv.</span>
+        <span class="topic-name">Biomedical &amp; astronomical imaging</span>
+      </li>
+      <li>
+        <span class="topic-num">v.</span>
+        <span class="topic-name">Translational research &amp; industry impact</span>
+      </li>
+    </ul>
+  </section>
+
+  <!-- —————————————————————————————————— speakers -->
+  <section id="speakers">
+    <div class="section-head">
+      <div class="section-label"><span class="num">04</span>Speakers</div>
+      <h2 class="section-title">Invitations are <em>in flight</em>.</h2>
+    </div>
+
+    <div class="section-body">
+      <div></div>
+      <div class="prose">
+        <p>
+          Speaker invitations are being extended to prominent Australian-based figures in computational imaging. Confirmed names will be listed here as responses come in. We expect to publish the speaker programme in November 2026.
+        </p>
+<!--        <div class="disclosure">-->
+<!--          <strong>Under invitation or expressed initial interest:</strong><br>-->
+<!--          Prof. Arti Agrawal (UTS) · Prof. Peter Tuthill (USyd) · Prof. Maryanne Large (USyd) · Prof. Paul Hurley (WSU)-->
+<!--        </div>-->
+      </div>
+    </div>
+  </section>
+
+  <!-- —————————————————————————————————— committee -->
+  <section id="committee">
+    <div class="section-head">
+      <div class="section-label"><span class="num">05</span>Committee</div>
+      <h2 class="section-title">The organising team.</h2>
+    </div>
+
+    <div class="people">
+      <div class="person">
+        <div class="name">Dr. Donald Dansereau</div>
+        <div class="role">Univ. of Sydney</div>
+        <div class="bio">Computational imaging, robotic imaging and perception.</div>
+        <span class="ieee">IEEE SPS Member</span>
+      </div>
+      <div class="person">
+        <div class="name">A/Prof. Benjamin Pope</div>
+        <div class="role">Macquarie University</div>
+        <div class="bio">Astronomical imaging, Fourier optics. Organiser of Bracewell@70.</div>
+      </div>
+      <div class="person">
+        <div class="name">Dr. Jennifer Wakulicz</div>
+        <div class="role">Univ. of Sydney</div>
+        <div class="bio">Perception, probabilistic modelling, information theory.</div>
+        <span class="ieee">IEEE Member</span>
+      </div>
+      <div class="person">
+        <div class="name">Dr. James Gray</div>
+        <div class="role">Univ. of Sydney</div>
+        <div class="bio">Computational imaging, light field imaging, 3D reconstruction.</div>
+        <span class="ieee">IEEE SPS Member</span>
+      </div>
+      <div class="person">
+        <div class="name">Dr. Nimrod Kruger</div>
+        <div class="role">Western Sydney University</div>
+        <div class="bio">Computational imaging, event-based sensing.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- —————————————————————————————————— timeline -->
+  <section id="timeline">
+    <div class="section-head">
+      <div class="section-label"><span class="num">06</span>Timeline</div>
+      <h2 class="section-title">Key dates.</h2>
+    </div>
+
+    <ul class="timeline">
+      <li class="now">
+        <span class="when">June–July 2026</span>
+        <span class="what">Venue confirmation · early-joiner social dinner</span>
+      </li>
+      <li>
+        <span class="when">August 2026</span>
+        <span class="what">Speaker invitations · workshop topic leads identified · Community Council mailing list established</span>
+      </li>
+      <li>
+        <span class="when">Sept–Oct 2026</span>
+        <span class="what">Website live · event announced · call for poster abstracts opens · Council agenda circulated</span>
+      </li>
+      <li>
+        <span class="when">November 2026</span>
+        <span class="what">Speaker programme confirmed and published</span>
+      </li>
+      <li>
+        <span class="when">January 2027</span>
+        <span class="what">Catering and logistics confirmed · poster submission deadline</span>
+      </li>
+      <li>
+        <span class="when">16 Feb 2027</span>
+        <span class="what"><strong>Event held</strong> — Greater Sydney</span>
+      </li>
+    </ul>
+  </section>
+
+<!--  <!-- —————————————————————————————————— get involved -->-->
+<!--  <section id="involved">-->
+<!--    <div class="section-head">-->
+<!--      <div class="section-label"><span class="num">07</span>Get involved</div>-->
+<!--      <h2 class="section-title">Three ways to <em>take part</em>.</h2>-->
+<!--    </div>-->
+
+<!--    <div class="cta-grid">-->
+<!--      <div class="cta">-->
+<!--        <h3>Present a poster</h3>-->
+<!--        <p>Open to PhD students and early-career researchers across NSW and the ACT. Best contributions awarded. Call for abstracts opens late 2026.</p>-->
+<!--        <a class="cta-action" href="mailto:posters@ciworkshop.au">Register your interest →</a>-->
+<!--      </div>-->
+<!--      <div class="cta">-->
+<!--        <h3>Join the Community Council</h3>-->
+<!--        <p>Help shape what computational imaging looks like as a community in Australia. The Council convenes at the workshop and continues year-round.</p>-->
+<!--        <a class="cta-action" href="mailto:council@ciworkshop.au">Add me to the list →</a>-->
+<!--      </div>-->
+<!--      <div class="cta">-->
+<!--        <h3>Sponsor the event</h3>-->
+<!--        <p>External sponsorship enables venue upgrades, expanded participation, recording, and travel support for students. Sponsor briefings on request.</p>-->
+<!--        <a class="cta-action" href="mailto:sponsors@ciworkshop.au">Sponsor briefing →</a>-->
+<!--      </div>-->
+<!--    </div>-->
+<!--  </section>-->
+
+</div>
+
+<!-- —————————————————————————————————— footer -->
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <h4>The Workshop</h4>
+        <p>A regional forum for computational imaging research across New South Wales and the Australian Capital Territory.</p>
+        <p style="margin-top:14px"><a href="mailto:hello@ciworkshop.au">hello@ciworkshop.au</a></p>
+      </div>
+<!--      <div>-->
+<!--        <h4>Sponsorship</h4>-->
+<!--        <p>Sponsorship application submitted to the IEEE Signal Processing Society Member Driven Initiative programme, 2027 Cycle 2.</p>-->
+<!--        <p style="margin-top:14px">Hosted in coordination with the NSW IEEE SPS Regional Chapter.</p>-->
+<!--      </div>-->
+      <div>
+        <h4>Elsewhere</h4>
+        <p><a href="https://bracewell.science" target="_blank" rel="noopener">Bracewell@70</a></p>
+<!--        <p><a href="https://signalprocessingsociety.org" target="_blank" rel="noopener">IEEE SPS</a></p>-->
+      </div>
+    </div>
+
+    <div class="colophon">
+      <div>© 2026 NSW Computational Imaging Workshop · ciworkshop.au</div>
+      <div>Set in Inter &amp; Source Serif</div>
+    </div>
+  </div>
+</footer>
+
+<!-- ═══════════════════════════════════════════════════
+     SPATIOTEMPORAL FREQUENCY BACKGROUND CANVAS
+════════════════════════════════════════════════════ -->
+<canvas id="stf-canvas" aria-hidden="true" style="
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+"></canvas>
+
+<!-- ═══════════════════════════════════════════════════
+     LENS RIG  (fixed right column)
+════════════════════════════════════════════════════ -->
+<div id="lens-rig" aria-hidden="true" style="
+  position: fixed;
+  right: 0;
+  top: 0;
+  width: 220px;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0;
+">
+  <img id="lens-top" src="lens.png" alt="" style="
+    width: 180px;
+    height: 180px;
+    object-fit: contain;
+    display: block;
+    transform: translateY(0px);
+    will-change: transform;
+  ">
+  <img id="lens-mid" src="lens.png" alt="" style="
+    width: 90px;
+    height: 90px;
+    object-fit: contain;
+    display: block;
+    transform: translateY(0px);
+    will-change: transform;
+    margin: 12px 0;
+  ">
+  <img id="lens-bot" src="lens.png" alt="" style="
+    width: 180px;
+    height: 180px;
+    object-fit: contain;
+    display: block;
+    transform: translateY(0px);
+    will-change: transform;
+  ">
+</div>
+
+<!-- ensure page content sits above canvas -->
+<style>
+  #stf-canvas { isolation: isolate; }
+  .wrap, footer { position: relative; z-index: 2; }
+  header.topbar { position: relative; z-index: 2; }
+
+  @media (max-width: 900px) {
+    #lens-rig { display: none; }
+  }
+</style>
+
+<script>
+(function () {
+  'use strict';
+
+  /* ── spatiotemporal frequency background ── */
+  const canvas = document.getElementById('stf-canvas');
+  const ctx    = canvas.getContext('2d');
+
+  let W, H, imgData, buf32;
+
+  function resize() {
+    W = canvas.width  = window.innerWidth;
+    H = canvas.height = window.innerHeight;
+    imgData = ctx.createImageData(W, H);
+    buf32   = new Uint32Array(imgData.data.buffer);
+  }
+  resize();
+  window.addEventListener('resize', resize);
+
+  /* scroll progress 0→1 over full document */
+  function scrollProgress() {
+    const max = document.documentElement.scrollHeight - window.innerHeight;
+    return max > 0 ? window.scrollY / max : 0;
+  }
+
+  /* ── multi-component STF: seed random components once ── */
+  const N_COMP = 6;
+  const rng = (lo, hi) => lo + Math.random() * (hi - lo);
+
+  const comps = Array.from({ length: N_COMP }, () => ({
+    angle : rng(0, Math.PI),
+    f0    : rng(0.0015, 0.005),   /* spatial freq at s=0 */
+    df    : rng(0.008,  0.022),   /* Δfreq over full scroll, scaled ×0.8 */
+    spd0  : rng(0.0004, 0.0010),  /* constant phase speed — not scroll-driven */
+    w     : rng(0.5, 1.0),
+    phase : 0,                    /* integrated phase accumulator */
+  }));
+
+  const wSum = comps.reduce((a, c) => a + c.w, 0);
+  comps.forEach(c => c.w /= wSum);
+
+  /* precompute trig once per component (updated on resize) */
+  const cosA = comps.map(c => Math.cos(c.angle));
+  const sinA = comps.map(c => Math.sin(c.angle));
+
+  let lastT = null;
+
+  /* render one frame of the spatiotemporal grating */
+  function drawSTF(t) {
+    const s  = scrollProgress();
+    const s_ = s * 0.8;          /* scroll sensitivity reduced 20% */
+    const amp = 10;
+    const rBase = 14, gBase = 16, bBase = 20;
+
+    /* advance each component's phase by its fixed speed × elapsed time */
+    if (lastT !== null) {
+      const dt = t - lastT;
+      for (let k = 0; k < N_COMP; k++) {
+        comps[k].phase += comps[k].spd0 * dt;
+      }
+    }
+    lastT = t;
+
+    /* spatial origin at screen centre — "zero" of each grating */
+    const cx = W * 0.5;
+    const cy = H * 0.5;
+
+    for (let y = 0; y < H; y++) {
+      const dy = y - cy;
+      for (let x = 0; x < W; x++) {
+        const dx = x - cx;
+        let val = 0;
+        for (let k = 0; k < N_COMP; k++) {
+          const c = comps[k];
+          /* spatial frequency scales linearly with scroll (reduced sensitivity) */
+          const f    = c.f0 + s_ * c.df;
+          /* project relative to centre */
+          const proj = dx * cosA[k] + dy * sinA[k];
+          val += c.w * Math.sin(2 * Math.PI * f * proj + c.phase);
+        }
+        const d = (val * amp) | 0;
+        const r = Math.min(255, Math.max(0, rBase + d));
+        const g = Math.min(255, Math.max(0, gBase + d));
+        const b = Math.min(255, Math.max(0, bBase + d + 2));
+        buf32[y * W + x] = (0xff000000) | (b << 16) | (g << 8) | r;
+      }
+    }
+    ctx.putImageData(imgData, 0, 0);
+  }
+
+  /* ── lens rig ── */
+  const lensTop = document.getElementById('lens-top');
+  const lensMid = document.getElementById('lens-mid');
+  const lensBot = document.getElementById('lens-bot');
+
+  /* base gap between lens centres when scroll = 0 (px) */
+  const BASE_GAP = 12;   /* the margin on lens-mid handles rest */
+  /* max travel amplitude */
+  const AMP_TOP = 60;    /* px — top lens moves up */
+  const AMP_BOT = 60;    /* px — bottom lens moves down */
+
+  function updateLenses() {
+    const s = scrollProgress();
+
+    /* top lens: half sine cycle  → away (up) and back */
+    const yTop = -AMP_TOP * Math.sin(s * Math.PI);
+
+    /* bottom lens: 3/4 sine cycle → away, back, away */
+    const yBot =  AMP_BOT * Math.sin(s * 1.5 * Math.PI);
+
+    lensTop.style.transform = `translateY(${yTop.toFixed(2)}px)`;
+    lensBot.style.transform = `translateY(${yBot.toFixed(2)}px)`;
+    /* middle lens stays fixed — it is the reference */
+  }
+
+  /* ── animation loop ── */
+  /* pixel-loop is O(W×H) per frame — skip frames on large displays */
+  let lastSTF = 0;
+  const STF_INTERVAL = 80; /* ms between canvas redraws ~12 fps */
+
+  function loop(t) {
+    if (t - lastSTF > STF_INTERVAL) {
+      drawSTF(t);
+      lastSTF = t;
+    }
+    updateLenses();
+    requestAnimationFrame(loop);
+  }
+
+  requestAnimationFrame(loop);
+
+})();
+</script>
+
+</body>
+</html>
