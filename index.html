@@ -892,5 +892,206 @@ footer a:hover { color: #a8d8ee; border-bottom-color: #a8d8ee; }
   </div>
 </footer>
 
+<!-- ═══════════════════════════════════════════════════
+     SPATIOTEMPORAL FREQUENCY BACKGROUND CANVAS
+════════════════════════════════════════════════════ -->
+<canvas id="stf-canvas" aria-hidden="true" style="
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+"></canvas>
+
+<!-- ═══════════════════════════════════════════════════
+     LENS RIG  (fixed right column)
+════════════════════════════════════════════════════ -->
+<div id="lens-rig" aria-hidden="true" style="
+  position: fixed;
+  right: 0;
+  top: 0;
+  width: 220px;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0;
+">
+  <img id="lens-top" src="lens.png" alt="" style="
+    width: 180px;
+    height: 180px;
+    object-fit: contain;
+    display: block;
+    transform: translateY(0px);
+    will-change: transform;
+  ">
+  <img id="lens-mid" src="lens.png" alt="" style="
+    width: 90px;
+    height: 90px;
+    object-fit: contain;
+    display: block;
+    transform: translateY(0px);
+    will-change: transform;
+    margin: 12px 0;
+  ">
+  <img id="lens-bot" src="lens.png" alt="" style="
+    width: 180px;
+    height: 180px;
+    object-fit: contain;
+    display: block;
+    transform: translateY(0px);
+    will-change: transform;
+  ">
+</div>
+
+<!-- ensure page content sits above canvas -->
+<style>
+  #stf-canvas { isolation: isolate; }
+  .wrap, footer { position: relative; z-index: 2; }
+  header.topbar { position: relative; z-index: 2; }
+
+  @media (max-width: 900px) {
+    #lens-rig { display: none; }
+  }
+</style>
+
+<script>
+(function () {
+  'use strict';
+
+  /* ── spatiotemporal frequency background ── */
+  const canvas = document.getElementById('stf-canvas');
+  const ctx    = canvas.getContext('2d');
+
+  let W, H, imgData, buf32;
+
+  function resize() {
+    W = canvas.width  = window.innerWidth;
+    H = canvas.height = window.innerHeight;
+    imgData = ctx.createImageData(W, H);
+    buf32   = new Uint32Array(imgData.data.buffer);
+  }
+  resize();
+  window.addEventListener('resize', resize);
+
+  /* scroll progress 0→1 over full document */
+  function scrollProgress() {
+    const max = document.documentElement.scrollHeight - window.innerHeight;
+    return max > 0 ? window.scrollY / max : 0;
+  }
+
+  /* ── multi-component STF: seed random components once ── */
+  const N_COMP = 6;
+  const rng = (lo, hi) => lo + Math.random() * (hi - lo);
+
+  const comps = Array.from({ length: N_COMP }, () => ({
+    angle : rng(0, Math.PI),
+    f0    : rng(0.0015, 0.005),   /* spatial freq at s=0 */
+    df    : rng(0.008,  0.022),   /* Δfreq over full scroll, scaled ×0.8 */
+    spd0  : rng(0.0004, 0.0010),  /* constant phase speed — not scroll-driven */
+    w     : rng(0.5, 1.0),
+    phase : 0,                    /* integrated phase accumulator */
+  }));
+
+  const wSum = comps.reduce((a, c) => a + c.w, 0);
+  comps.forEach(c => c.w /= wSum);
+
+  /* precompute trig once per component (updated on resize) */
+  const cosA = comps.map(c => Math.cos(c.angle));
+  const sinA = comps.map(c => Math.sin(c.angle));
+
+  let lastT = null;
+
+  /* render one frame of the spatiotemporal grating */
+  function drawSTF(t) {
+    const s  = scrollProgress();
+    const s_ = s * 0.8;          /* scroll sensitivity reduced 20% */
+    const amp = 10;
+    const rBase = 14, gBase = 16, bBase = 20;
+
+    /* advance each component's phase by its fixed speed × elapsed time */
+    if (lastT !== null) {
+      const dt = t - lastT;
+      for (let k = 0; k < N_COMP; k++) {
+        comps[k].phase += comps[k].spd0 * dt;
+      }
+    }
+    lastT = t;
+
+    /* spatial origin at screen centre — "zero" of each grating */
+    const cx = W * 0.5;
+    const cy = H * 0.5;
+
+    for (let y = 0; y < H; y++) {
+      const dy = y - cy;
+      for (let x = 0; x < W; x++) {
+        const dx = x - cx;
+        let val = 0;
+        for (let k = 0; k < N_COMP; k++) {
+          const c = comps[k];
+          /* spatial frequency scales linearly with scroll (reduced sensitivity) */
+          const f    = c.f0 + s_ * c.df;
+          /* project relative to centre */
+          const proj = dx * cosA[k] + dy * sinA[k];
+          val += c.w * Math.sin(2 * Math.PI * f * proj + c.phase);
+        }
+        const d = (val * amp) | 0;
+        const r = Math.min(255, Math.max(0, rBase + d));
+        const g = Math.min(255, Math.max(0, gBase + d));
+        const b = Math.min(255, Math.max(0, bBase + d + 2));
+        buf32[y * W + x] = (0xff000000) | (b << 16) | (g << 8) | r;
+      }
+    }
+    ctx.putImageData(imgData, 0, 0);
+  }
+
+  /* ── lens rig ── */
+  const lensTop = document.getElementById('lens-top');
+  const lensMid = document.getElementById('lens-mid');
+  const lensBot = document.getElementById('lens-bot');
+
+  /* base gap between lens centres when scroll = 0 (px) */
+  const BASE_GAP = 12;   /* the margin on lens-mid handles rest */
+  /* max travel amplitude */
+  const AMP_TOP = 60;    /* px — top lens moves up */
+  const AMP_BOT = 60;    /* px — bottom lens moves down */
+
+  function updateLenses() {
+    const s = scrollProgress();
+
+    /* top lens: half sine cycle  → away (up) and back */
+    const yTop = -AMP_TOP * Math.sin(s * Math.PI);
+
+    /* bottom lens: 3/4 sine cycle → away, back, away */
+    const yBot =  AMP_BOT * Math.sin(s * 1.5 * Math.PI);
+
+    lensTop.style.transform = `translateY(${yTop.toFixed(2)}px)`;
+    lensBot.style.transform = `translateY(${yBot.toFixed(2)}px)`;
+    /* middle lens stays fixed — it is the reference */
+  }
+
+  /* ── animation loop ── */
+  /* pixel-loop is O(W×H) per frame — skip frames on large displays */
+  let lastSTF = 0;
+  const STF_INTERVAL = 80; /* ms between canvas redraws ~12 fps */
+
+  function loop(t) {
+    if (t - lastSTF > STF_INTERVAL) {
+      drawSTF(t);
+      lastSTF = t;
+    }
+    updateLenses();
+    requestAnimationFrame(loop);
+  }
+
+  requestAnimationFrame(loop);
+
+})();
+</script>
+
 </body>
 </html>
