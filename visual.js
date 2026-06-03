@@ -171,49 +171,72 @@
   ════════════════════════════════════════════════════════════ */
 
   /* ── ★ TUNE: lens rig parameters ─── */
-  const LENS_SIZE_LARGE = 180;   /* px — top and bottom lens diameter  */
-  const LENS_SIZE_SMALL =  90;   /* px — middle lens diameter          */
-  const LENS_GAP        =  12;   /* px — resting margin around middle  */
-  const RIG_WIDTH       = 220;   /* px — fixed column width            */
-  const AMP_TOP         =  60;   /* px — max vertical travel, top lens */
-  const AMP_BOT         =  60;   /* px — max vertical travel, bot lens */
-  const BREAKPOINT      = 900;   /* px — hide rig below this width     */
+  const LENS_SIZE_LARGE = 180;   /* px — top and bottom lens diameter      */
+  const LENS_SIZE_SMALL =  90;   /* px — middle lens diameter              */
+  const LENS_GAP        =  12;   /* px — resting gap around middle lens    */
+  const RIG_WIDTH       = 220;   /* px — fixed column width                */
+  const AMP_TOP         =  60;   /* px — max vertical travel, top lens     */
+  const AMP_BOT         =  60;   /* px — max vertical travel, bottom lens  */
+  const BREAKPOINT      = 900;   /* px — hide rig below this viewport width */
 
-  /* ── mount rig ─── */
+  /* ── ★ TUNE: ray diagram parameters ─── */
+  const N_RAYS    = 5;           /* number of marginal rays                */
+  const RAY_COLOR = 'rgba(180,210,200,0.18)'; /* dim, natural — behind lenses */
+  const RAY_DASH  = '4,6';       /* SVG stroke-dasharray                   */
+
+  /* ── ★ TUNE: thin lens focal lengths (px) ─── */
+  /* Positive = converging. Tune these to taste.  */
+  const F1 = 220;   /* top lens focal length    */
+  const F2 = 120;   /* middle lens focal length */
+  const F3 = 200;   /* bottom lens focal length */
+
+  /* ── mount rig (position:relative so children can be absolute) ─── */
   const rig = document.createElement('div');
   rig.id = 'lens-rig';
   Object.assign(rig.style, {
-    position:       'fixed',
-    right:          '0',
-    top:            '0',
-    width:          `${RIG_WIDTH}px`,
-    height:         '100vh',
-    pointerEvents:  'none',
-    zIndex:         '1',
-    display:        'flex',
-    flexDirection:  'column',
-    alignItems:     'center',
-    justifyContent: 'center',
+    position:      'fixed',
+    right:         '0',
+    top:           '0',
+    width:         `${RIG_WIDTH}px`,
+    height:        '100vh',
+    pointerEvents: 'none',
+    zIndex:        '1',
+    overflow:      'hidden',
   });
 
-  function makeLens(size, extraStyle) {
+  /* ── ray SVG — sits behind lenses, full rig size ─── */
+  const raySvg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+  Object.assign(raySvg.style, {
+    position: 'absolute',
+    inset:    '0',
+    width:    '100%',
+    height:   '100%',
+    overflow: 'visible',
+  });
+  rig.appendChild(raySvg);
+
+  /* ── lens images, absolutely centred horizontally ─── */
+  function makeLens(size) {
     const img = document.createElement('img');
     img.src = 'lens.png';
     img.alt = '';
     Object.assign(img.style, {
+      position:     'absolute',
+      left:         '50%',
       width:        `${size}px`,
       height:       `${size}px`,
+      marginLeft:   `${-size / 2}px`,
       objectFit:    'contain',
       display:      'block',
       willChange:   'transform',
-      ...extraStyle,
+      mixBlendMode: 'screen',
     });
     return img;
   }
 
-  const lensTop = makeLens(LENS_SIZE_LARGE, {});
-  const lensMid = makeLens(LENS_SIZE_SMALL, { margin: `${LENS_GAP}px 0` });
-  const lensBot = makeLens(LENS_SIZE_LARGE, {});
+  const lensTop = makeLens(LENS_SIZE_LARGE);
+  const lensMid = makeLens(LENS_SIZE_SMALL);
+  const lensBot = makeLens(LENS_SIZE_LARGE);
 
   rig.appendChild(lensTop);
   rig.appendChild(lensMid);
@@ -225,19 +248,123 @@
   rigStyle.textContent = `@media (max-width: ${BREAKPOINT}px) { #lens-rig { display: none !important; } }`;
   document.head.appendChild(rigStyle);
 
-  /* ── scroll-driven lens motion ─── */
+  /* ── compute lens Y centres (px from rig top) for a given scroll ─── */
+  /* The three lenses are laid out symmetrically around rig midpoint.
+     Resting stack height = LENS_SIZE_LARGE + LENS_GAP*2 + LENS_SIZE_SMALL
+                            + LENS_GAP*2 + LENS_SIZE_LARGE              */
+  const STACK_REST = LENS_SIZE_LARGE + LENS_GAP + LENS_SIZE_SMALL + LENS_GAP + LENS_SIZE_LARGE;
+
+  function lensYCentres(s) {
+    const rigH   = window.innerHeight;
+    const mid    = rigH / 2;                       /* rig vertical midpoint */
+
+    /* resting centre Y of each lens */
+    const yMidRest = mid;
+    const yTopRest = yMidRest - LENS_SIZE_SMALL / 2 - LENS_GAP - LENS_SIZE_LARGE / 2;
+    const yBotRest = yMidRest + LENS_SIZE_SMALL / 2 + LENS_GAP + LENS_SIZE_LARGE / 2;
+
+    /* scroll-driven offsets (same sine functions as before) */
+    const dTop = -AMP_TOP * Math.sin(s * Math.PI);
+    const dBot =  AMP_BOT * Math.sin(s * 1.5 * Math.PI);
+
+    return {
+      yTop: yTopRest + dTop,
+      yMid: yMidRest,           /* middle lens is fixed reference */
+      yBot: yBotRest + dBot,
+    };
+  }
+
+  /* ── position lens images from computed centres ─── */
+  function positionLensImages(centres) {
+    const { yTop, yMid, yBot } = centres;
+    lensTop.style.top = `${yTop - LENS_SIZE_LARGE / 2}px`;
+    lensMid.style.top = `${yMid - LENS_SIZE_SMALL / 2}px`;
+    lensBot.style.top = `${yBot - LENS_SIZE_LARGE / 2}px`;
+  }
+
+  /* ── ray tracing (paraxial / thin lens) ─── */
+  /*
+     Sign convention: y downward (screen coords).
+     Ray state: [h, nu] where h = height above optical axis (px),
+     nu = n*u ≈ angle (px/px, paraxial). Optical axis = horizontal
+     centre of rig (RIG_WIDTH/2).
+     Thin lens: nu_out = nu_in - h / f
+     Transfer:  h_out  = h_in + nu * d   (d = distance to next plane)
+  */
+  function traceRays(centres) {
+    const cx = RIG_WIDTH / 2;    /* optical axis x in rig coords */
+    const { yTop, yMid, yBot } = centres;
+
+    /* Input beam: collimated (nu=0), rays span ±half of top lens diameter */
+    const halfBeam = LENS_SIZE_LARGE / 2;
+    const rayHeights = [];
+    for (let i = 0; i < N_RAYS; i++) {
+      const t = N_RAYS === 1 ? 0 : (i / (N_RAYS - 1)) * 2 - 1; /* -1 … +1 */
+      rayHeights.push(t * halfBeam);
+    }
+
+    const focalLengths = [F1, F2, F3];
+    const lensY        = [yTop, yMid, yBot];
+    const SVG_TOP      = 0;
+    const SVG_BOT      = window.innerHeight;
+
+    /* for each ray, build the polyline points */
+    const polylines = rayHeights.map(h0 => {
+      let h  = h0;
+      let nu = 0;   /* collimated input */
+      const pts = [];
+
+      /* start point: top of SVG */
+      pts.push([cx + h, SVG_TOP]);
+
+      for (let li = 0; li < 3; li++) {
+        const yLens = lensY[li];
+        const f     = focalLengths[li];
+
+        /* propagate to this lens plane */
+        const prevY = pts[pts.length - 1][1];
+        const d     = yLens - prevY;
+        h = h + nu * d;
+        pts.push([cx + h, yLens]);
+
+        /* refract */
+        nu = nu - h / f;
+      }
+
+      /* propagate from last lens to bottom of SVG */
+      const lastY = lensY[2];
+      const dFinal = SVG_BOT - lastY;
+      const hFinal = h + nu * dFinal;
+      pts.push([cx + hFinal, SVG_BOT]);
+
+      return pts;
+    });
+
+    return polylines;
+  }
+
+  /* ── draw rays into SVG ─── */
+  function drawRays(polylines) {
+    /* clear previous frame */
+    while (raySvg.firstChild) raySvg.removeChild(raySvg.firstChild);
+
+    polylines.forEach(pts => {
+      const pl = document.createElementNS('http://www.w3.org/2000/svg', 'polyline');
+      pl.setAttribute('points', pts.map(p => p.join(',')).join(' '));
+      pl.setAttribute('stroke', RAY_COLOR);
+      pl.setAttribute('stroke-width', '1');
+      pl.setAttribute('stroke-dasharray', RAY_DASH);
+      pl.setAttribute('fill', 'none');
+      raySvg.appendChild(pl);
+    });
+  }
+
+  /* ── combined update ─── */
   function updateLenses() {
-    const s = scrollProgress();
-
-    /* top:    half sine cycle  (0 → π) — away (upward) then back */
-    const yTop = -AMP_TOP * Math.sin(s * Math.PI);
-
-    /* bottom: 3/4 sine cycle  (0 → 1.5π) — away, back, away */
-    const yBot =  AMP_BOT * Math.sin(s * 1.5 * Math.PI);
-
-    lensTop.style.transform = `translateY(${yTop.toFixed(2)}px)`;
-    lensBot.style.transform = `translateY(${yBot.toFixed(2)}px)`;
-    /* middle lens is the fixed reference — no transform applied */
+    const s       = scrollProgress();
+    const centres = lensYCentres(s);
+    positionLensImages(centres);
+    drawRays(traceRays(centres));
   }
 
   /* ════════════════════════════════════════════════════════════
