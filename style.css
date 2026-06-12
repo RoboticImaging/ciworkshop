@@ -425,6 +425,16 @@ section {
   padding: 22px 22px 24px 22px;
   border-radius: 2px;
 }
+.person-photo {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  object-fit: cover;
+  display: block;
+  margin-bottom: 14px;
+  border: 1px solid var(--rule);
+  filter: grayscale(15%);
+}
 .person .name {
   font-family: "Source Serif 4", Georgia, serif;
   font-weight: 500;

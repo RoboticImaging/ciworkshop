@@ -200,6 +200,12 @@
     const grid = el('div', 'people');
     d.people.forEach(p => {
       const card = el('div', 'person');
+      if (p.photo) {
+        const img = el('img', 'person-photo');
+        img.src = p.photo;
+        img.alt = p.name;
+        card.appendChild(img);
+      }
       card.appendChild(el('div', 'name', p.name));
       card.appendChild(el('div', 'role', p.role));
       card.appendChild(el('div', 'bio',  p.bio));

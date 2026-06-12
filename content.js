@@ -25,6 +25,9 @@
    • HTML entities: &amp; = &,  &nbsp; = non-breaking space.
    • To comment out a nav link, set  enabled: false.
    • To comment out a committee member's IEEE badge, set  ieee: null.
+   • To add a committee member's headshot, set  photo: 'people/name.jpg'
+     (or any image path/URL). Leave  photo: null  to show no image.
+     Square images work best (they're cropped to a circle).
    • Timeline: set  now: true  on the currently-active item.
 ================================================================ */
 
@@ -212,30 +215,35 @@ const SITE = {
         role: 'Univ. of Sydney',
         bio:  'Computational imaging, robotic imaging and perception.',
         ieee: 'IEEE SPS Member',
+        photo: 'people/DonaldDansereau.jpg',
       },
       {
         name: 'A/Prof. Benjamin Pope',
         role: 'Macquarie University',
         bio:  'Astronomical imaging, Fourier optics. Organiser of Bracewell@70.',
         ieee: null,
+        photo: 'people/BenjaminPope.jpeg',
       },
       {
         name: 'Dr. Jennifer Wakulicz',
         role: 'Univ. of Sydney',
         bio:  'Perception, probabilistic modelling, information theory.',
         ieee: 'IEEE Member',
+        photo: 'people/JenniferWakulicz.jpeg',
       },
       {
         name: 'Dr. James Gray',
         role: 'Univ. of Sydney',
         bio:  'Computational imaging, light field imaging, 3D reconstruction.',
         ieee: 'IEEE SPS Member',
+        photo: 'people/JamesGray.jpeg',
       },
       {
         name: 'Dr. Nimrod Kruger',
         role: 'Western Sydney University',
         bio:  'Computational imaging, event-based sensing.',
         ieee: null,
+        photo: 'people/NimrodKruger.jpeg',
       },
     ],
   },
