@@ -128,6 +128,7 @@ a:hover { color: #a8d8ee; border-bottom-color: #a8d8ee; }
 
 .hero {
   position: relative;
+  z-index: 0;
   padding: 80px 0 100px 0;
   border-bottom: 1px solid var(--rule);
   overflow: hidden;
@@ -137,18 +138,25 @@ a:hover { color: #a8d8ee; border-bottom-color: #a8d8ee; }
 
 /* Dark scrim over the banner image so text stays legible.
    Only applied when layout.js adds .has-banner (i.e. hero.banner is set
-   in content.js). Tweak the rgba stops to taste — alpha 0 = transparent. */
+   in content.js). Tweak the rgba stops to taste — alpha 0 = transparent.
+   z-index: -1 keeps it strictly below the hero's content (which sits in
+   the same stacking context at z-index: 0 / auto by default). */
 .hero.has-banner::before {
   content: "";
   position: absolute;
   inset: 0;
+  z-index: -1;
   background: linear-gradient(
     180deg,
-    rgba(14, 16, 20, 0.78) 0%,
+    rgba(14, 16, 20, 0.55) 0%,
     rgba(14, 16, 20, 0.62) 45%,
     rgba(14, 16, 20, 0.88) 100%
   );
   pointer-events: none;
+}
+
+.hero > * {
+  position: relative;
 }
 
 .hero-grid {
