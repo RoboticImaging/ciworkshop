@@ -120,6 +120,23 @@
     return section;
   }
 
+  function renderTopics(d) {
+    const NUMERALS = ['i.','ii.','iii.','iv.','v.','vi.','vii.','viii.','ix.','x.'];
+    const section = el('section', null);
+    section.id = 'topics';
+    section.appendChild(sectionHead(d.num, d.label, d.title));
+
+    const ul = el('ul', 'topics');
+    d.items.forEach((name, i) => {
+      const li = el('li');
+      li.appendChild(el('span', 'topic-num', NUMERALS[i] || `${i+1}.`));
+      li.appendChild(el('span', 'topic-name', name));
+      ul.appendChild(li);
+    });
+    section.appendChild(ul);
+    return section;
+  }
+
   function renderProgramme(d) {
     const section = el('section', null);
     section.id = 'programme';
@@ -136,23 +153,6 @@
       list.appendChild(row);
     });
     section.appendChild(list);
-    return section;
-  }
-
-  function renderTopics(d) {
-    const NUMERALS = ['i.','ii.','iii.','iv.','v.','vi.','vii.','viii.','ix.','x.'];
-    const section = el('section', null);
-    section.id = 'topics';
-    section.appendChild(sectionHead(d.num, d.label, d.title));
-
-    const ul = el('ul', 'topics');
-    d.items.forEach((name, i) => {
-      const li = el('li');
-      li.appendChild(el('span', 'topic-num', NUMERALS[i] || `${i+1}.`));
-      li.appendChild(el('span', 'topic-name', name));
-      ul.appendChild(li);
-    });
-    section.appendChild(ul);
     return section;
   }
 
@@ -267,8 +267,8 @@
     wrap.appendChild(renderNav(SITE.nav));
     wrap.appendChild(renderHero(SITE.hero));
     wrap.appendChild(renderAbout(SITE.about));
-    wrap.appendChild(renderProgramme(SITE.programme));
     wrap.appendChild(renderTopics(SITE.topics));
+    wrap.appendChild(renderProgramme(SITE.programme));
     wrap.appendChild(renderSpeakers(SITE.speakers));
     wrap.appendChild(renderCommittee(SITE.committee));
     wrap.appendChild(renderTimeline(SITE.timeline));

@@ -96,12 +96,28 @@ const SITE = {
       },
     ],
   },
-
   /* ─────────────────────────────────────────────────────────────
-     SECTION 02 — PROGRAMME
+     SECTION 02 — TOPICS
+  ───────────────────────────────────────────────────────────── */
+  topics: {
+    num:   '02',
+    label: 'Topics',
+    title: 'What we\'ll cover.',
+
+    /* Roman numerals are generated automatically — just list the names. */
+    items: [
+      'Inverse problems &amp; image reconstruction',
+      'Diffractive &amp; Fourier optics',
+      'Neuromorphic &amp; event-based sensing',
+      'Biomedical &amp; astronomical imaging',
+      'Translational research &amp; industry impact',
+    ],
+  },
+  /* ─────────────────────────────────────────────────────────────
+     SECTION 03 — PROGRAMME
   ───────────────────────────────────────────────────────────── */
   programme: {
-    num:   '02',
+    num:   '03',
     label: 'Programme',
     title: 'A full day, built for <em>depth and exchange</em>.',
 
@@ -139,23 +155,7 @@ const SITE = {
     ],
   },
 
-  /* ─────────────────────────────────────────────────────────────
-     SECTION 03 — TOPICS
-  ───────────────────────────────────────────────────────────── */
-  topics: {
-    num:   '03',
-    label: 'Topics',
-    title: 'What we\'ll cover.',
 
-    /* Roman numerals are generated automatically — just list the names. */
-    items: [
-      'Inverse problems &amp; image reconstruction',
-      'Diffractive &amp; Fourier optics',
-      'Neuromorphic &amp; event-based sensing',
-      'Biomedical &amp; astronomical imaging',
-      'Translational research &amp; industry impact',
-    ],
-  },
 
   /* ─────────────────────────────────────────────────────────────
      SECTION 04 — SPEAKERS
