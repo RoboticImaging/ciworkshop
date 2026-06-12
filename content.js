@@ -28,6 +28,12 @@
    • To add a committee member's headshot, set  photo: 'people/name.jpg'
      (or any image path/URL). Leave  photo: null  to show no image.
      Square images work best (they're cropped to a circle).
+   • To add a banner image to the hero section, set  hero.banner
+     to an image path or URL (e.g. 'banner.jpg'). A dark overlay is
+     applied automatically so the title text stays readable. Leave
+     banner: null  for the current generative background only.
+     Wide images (1600px+) work best — it's cropped to cover the
+     hero area at any screen size.
    • Timeline: set  now: true  on the currently-active item.
 ================================================================ */
 
@@ -66,6 +72,10 @@ const SITE = {
     eyebrow: 'Inaugural edition · NSW &amp; ACT',
     title:   'A regional forum for <em>computational imaging</em>.',
     lede:    'One day in Sydney for the people designing optics, sensors and algorithms together — from inverse problems and Fourier methods to event cameras and end-to-end optics.',
+
+    /* Banner image behind the hero section, with a dark overlay
+       applied automatically (see style.css .has-banner). */
+    banner: 'CameraPrototypeWithAlignmentLaser.jpg',
 
     /* info card (right side) */
     card: [
@@ -215,35 +225,35 @@ const SITE = {
         role: 'Univ. of Sydney',
         bio:  'Computational imaging, robotic imaging and perception.',
         ieee: 'IEEE SPS Member',
-        photo: 'people/DonaldDansereau.jpg',
+        photo: null,
       },
       {
         name: 'A/Prof. Benjamin Pope',
         role: 'Macquarie University',
         bio:  'Astronomical imaging, Fourier optics. Organiser of Bracewell@70.',
         ieee: null,
-        photo: 'people/BenjaminPope.jpeg',
+        photo: null,
       },
       {
         name: 'Dr. Jennifer Wakulicz',
         role: 'Univ. of Sydney',
         bio:  'Perception, probabilistic modelling, information theory.',
         ieee: 'IEEE Member',
-        photo: 'people/JenniferWakulicz.jpeg',
+        photo: null,
       },
       {
         name: 'Dr. James Gray',
         role: 'Univ. of Sydney',
         bio:  'Computational imaging, light field imaging, 3D reconstruction.',
         ieee: 'IEEE SPS Member',
-        photo: 'people/JamesGray.jpeg',
+        photo: null,
       },
       {
         name: 'Dr. Nimrod Kruger',
         role: 'Western Sydney University',
         bio:  'Computational imaging, event-based sensing.',
         ieee: null,
-        photo: 'people/NimrodKruger.jpeg',
+        photo: null,
       },
     ],
   },

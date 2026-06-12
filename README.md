@@ -55,6 +55,24 @@ If you'd rather use Cloudflare (faster, free, easier DNS if the domain is alread
 
 Cloudflare Pages also gives you a free preview URL on every push.
 
+## Adding a hero banner image
+
+`SITE.hero.banner` in `content.js` controls a full-width background image behind the hero title and info card.
+
+1. Add your image to the repo root (or a subfolder) — e.g. `banner.jpg`. Wide images (1600px+) work best since it's cropped to cover the hero area at any screen size.
+2. Set `banner: 'banner.jpg'` (or a full URL). Leave `banner: null` for the current default — just the generative background.
+3. A dark gradient overlay is applied automatically so the title and info card stay readable. To adjust its strength, edit the `rgba(...)` stops in `.hero.has-banner::before` in `style.css`.
+
+## Adding committee headshots
+
+Each person in `content.js` (`SITE.committee.people`) has a `photo` field.
+
+1. Add image files to the repo — e.g. create a `people/` folder and drop in `dansereau.jpg`, `pope.jpg`, etc. Square images work best (they're cropped into a circle).
+2. Set `photo: 'people/dansereau.jpg'` for that person. Leave `photo: null` to show no image (current default for everyone).
+3. Commit and push — no other changes needed, `layout.js` already handles rendering the image when `photo` is set.
+
+You can also point `photo` at an external URL if you'd rather host images elsewhere (e.g. an institutional profile page).
+
 ## Editing
 
 Single file. Open `index.html`, edit, push. Sections are marked with comments — `<!-- ——— hero -->`, `<!-- ——— programme -->`, etc.

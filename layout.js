@@ -78,6 +78,10 @@
 
   function renderHero(d) {
     const section = el('section', 'hero');
+    if (d.banner) {
+      section.classList.add('has-banner');
+      section.style.backgroundImage = `url('${d.banner}')`;
+    }
     section.innerHTML = APERTURE_SVG;
     section.appendChild(el('div', 'eyebrow', d.eyebrow));
 
