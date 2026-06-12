@@ -113,11 +113,31 @@ const SITE = {
       'Translational research &amp; industry impact',
     ],
   },
+
   /* ─────────────────────────────────────────────────────────────
-     SECTION 03 — PROGRAMME
+     SECTION 03 — TIMELINE
+     now: true  →  highlighted row (current period)
+  ───────────────────────────────────────────────────────────── */
+  timeline: {
+    num:   '03',
+    label: 'Timeline',
+    title: 'Key dates.',
+
+    items: [
+      { when: 'June–July 2026',  what: 'Venue confirmation · early-joiner social dinner', now: true  },
+      { when: 'August 2026',     what: 'Speaker invitations · workshop topic leads identified · Community Council mailing list established', now: false },
+      { when: 'Sept–Oct 2026',   what: 'Website live · event announced · call for poster abstracts opens · Council agenda circulated', now: false },
+      { when: 'November 2026',   what: 'Speaker programme confirmed and published', now: false },
+      { when: 'January 2027',    what: 'Catering and logistics confirmed · poster submission deadline', now: false },
+      { when: '16 Feb 2027',     what: '<strong>Event held</strong> — Greater Sydney', now: false },
+    ],
+  },
+
+  /* ─────────────────────────────────────────────────────────────
+     SECTION 04 — PROGRAMME
   ───────────────────────────────────────────────────────────── */
   programme: {
-    num:   '03',
+    num:   '04',
     label: 'Programme',
     title: 'A full day, built for <em>depth and exchange</em>.',
 
@@ -158,10 +178,10 @@ const SITE = {
 
 
   /* ─────────────────────────────────────────────────────────────
-     SECTION 04 — SPEAKERS
+     SECTION 05 — SPEAKERS
   ───────────────────────────────────────────────────────────── */
   speakers: {
-    num:   '04',
+    num:   '05',
     label: 'Speakers',
     title: 'Invitations are <em>in flight</em>.',
 
@@ -177,12 +197,12 @@ const SITE = {
   },
 
   /* ─────────────────────────────────────────────────────────────
-     SECTION 05 — COMMITTEE
+     SECTION 06 — COMMITTEE
      ieee: null   →  no badge shown
      ieee: 'IEEE SPS Member'  →  badge shown
   ───────────────────────────────────────────────────────────── */
   committee: {
-    num:   '05',
+    num:   '06',
     label: 'Committee',
     title: 'The organising team.',
 
@@ -220,24 +240,7 @@ const SITE = {
     ],
   },
 
-  /* ─────────────────────────────────────────────────────────────
-     SECTION 06 — TIMELINE
-     now: true  →  highlighted row (current period)
-  ───────────────────────────────────────────────────────────── */
-  timeline: {
-    num:   '06',
-    label: 'Timeline',
-    title: 'Key dates.',
 
-    items: [
-      { when: 'June–July 2026',  what: 'Venue confirmation · early-joiner social dinner', now: true  },
-      { when: 'August 2026',     what: 'Speaker invitations · workshop topic leads identified · Community Council mailing list established', now: false },
-      { when: 'Sept–Oct 2026',   what: 'Website live · event announced · call for poster abstracts opens · Council agenda circulated', now: false },
-      { when: 'November 2026',   what: 'Speaker programme confirmed and published', now: false },
-      { when: 'January 2027',    what: 'Catering and logistics confirmed · poster submission deadline', now: false },
-      { when: '16 Feb 2027',     what: '<strong>Event held</strong> — Greater Sydney', now: false },
-    ],
-  },
 
   /* ─────────────────────────────────────────────────────────────
      SECTION 07 — GET INVOLVED  (currently hidden)

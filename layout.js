@@ -137,6 +137,22 @@
     return section;
   }
 
+  function renderTimeline(d) {
+    const section = el('section', null);
+    section.id = 'timeline';
+    section.appendChild(sectionHead(d.num, d.label, d.title));
+
+    const ul = el('ul', 'timeline');
+    d.items.forEach(item => {
+      const li = el('li', item.now ? 'now' : null);
+      li.appendChild(el('span', 'when', item.when));
+      li.appendChild(el('span', 'what', item.what));
+      ul.appendChild(li);
+    });
+    section.appendChild(ul);
+    return section;
+  }
+
   function renderProgramme(d) {
     const section = el('section', null);
     section.id = 'programme';
@@ -191,22 +207,6 @@
       grid.appendChild(card);
     });
     section.appendChild(grid);
-    return section;
-  }
-
-  function renderTimeline(d) {
-    const section = el('section', null);
-    section.id = 'timeline';
-    section.appendChild(sectionHead(d.num, d.label, d.title));
-
-    const ul = el('ul', 'timeline');
-    d.items.forEach(item => {
-      const li = el('li', item.now ? 'now' : null);
-      li.appendChild(el('span', 'when', item.when));
-      li.appendChild(el('span', 'what', item.what));
-      ul.appendChild(li);
-    });
-    section.appendChild(ul);
     return section;
   }
 
@@ -268,10 +268,10 @@
     wrap.appendChild(renderHero(SITE.hero));
     wrap.appendChild(renderAbout(SITE.about));
     wrap.appendChild(renderTopics(SITE.topics));
+    wrap.appendChild(renderTimeline(SITE.timeline));
     wrap.appendChild(renderProgramme(SITE.programme));
     wrap.appendChild(renderSpeakers(SITE.speakers));
     wrap.appendChild(renderCommittee(SITE.committee));
-    wrap.appendChild(renderTimeline(SITE.timeline));
 
     const involved = renderInvolved(SITE.involved);
     if (involved) wrap.appendChild(involved);

@@ -345,6 +345,36 @@ section {
 }
 
 /* ──────────────────────────────────────────────────────────────
+   TIMELINE
+────────────────────────────────────────────────────────────── */
+
+.timeline { padding-left: 0; margin: 0; list-style: none; }
+.timeline li {
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  gap: 32px;
+  padding: 16px 0;
+  border-bottom: 1px dotted var(--rule);
+}
+@media (max-width: 640px) {
+  .timeline li { grid-template-columns: 1fr; gap: 4px; }
+}
+.timeline .when {
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--accent);
+  padding-top: 4px;
+}
+.timeline .what { font-size: 16px; color: var(--text); }
+.timeline li.now {
+  background: linear-gradient(90deg, rgba(126,196,227,0.08), transparent 70%);
+  margin-left: -16px;
+  padding-left: 16px;
+}
+
+/* ──────────────────────────────────────────────────────────────
    PROGRAMME
 ────────────────────────────────────────────────────────────── */
 
@@ -426,35 +456,7 @@ section {
 }
 
 
-/* ──────────────────────────────────────────────────────────────
-   TIMELINE
-────────────────────────────────────────────────────────────── */
 
-.timeline { padding-left: 0; margin: 0; list-style: none; }
-.timeline li {
-  display: grid;
-  grid-template-columns: 200px 1fr;
-  gap: 32px;
-  padding: 16px 0;
-  border-bottom: 1px dotted var(--rule);
-}
-@media (max-width: 640px) {
-  .timeline li { grid-template-columns: 1fr; gap: 4px; }
-}
-.timeline .when {
-  font-size: 12px;
-  font-weight: 600;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: var(--accent);
-  padding-top: 4px;
-}
-.timeline .what { font-size: 16px; color: var(--text); }
-.timeline li.now {
-  background: linear-gradient(90deg, rgba(126,196,227,0.08), transparent 70%);
-  margin-left: -16px;
-  padding-left: 16px;
-}
 
 
 /* ──────────────────────────────────────────────────────────────
