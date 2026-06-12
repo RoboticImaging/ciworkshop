@@ -78,6 +78,10 @@
 
   function renderHero(d) {
     const section = el('section', 'hero');
+    if (d.banner) {
+      section.classList.add('has-banner');
+      section.style.backgroundImage = `url('${d.banner}')`;
+    }
     section.innerHTML = APERTURE_SVG;
     section.appendChild(el('div', 'eyebrow', d.eyebrow));
 
@@ -120,6 +124,39 @@
     return section;
   }
 
+  function renderTopics(d) {
+    const NUMERALS = ['i.','ii.','iii.','iv.','v.','vi.','vii.','viii.','ix.','x.'];
+    const section = el('section', null);
+    section.id = 'topics';
+    section.appendChild(sectionHead(d.num, d.label, d.title));
+
+    const ul = el('ul', 'topics');
+    d.items.forEach((name, i) => {
+      const li = el('li');
+      li.appendChild(el('span', 'topic-num', NUMERALS[i] || `${i+1}.`));
+      li.appendChild(el('span', 'topic-name', name));
+      ul.appendChild(li);
+    });
+    section.appendChild(ul);
+    return section;
+  }
+
+  function renderTimeline(d) {
+    const section = el('section', null);
+    section.id = 'timeline';
+    section.appendChild(sectionHead(d.num, d.label, d.title));
+
+    const ul = el('ul', 'timeline');
+    d.items.forEach(item => {
+      const li = el('li', item.now ? 'now' : null);
+      li.appendChild(el('span', 'when', item.when));
+      li.appendChild(el('span', 'what', item.what));
+      ul.appendChild(li);
+    });
+    section.appendChild(ul);
+    return section;
+  }
+
   function renderProgramme(d) {
     const section = el('section', null);
     section.id = 'programme';
@@ -136,23 +173,6 @@
       list.appendChild(row);
     });
     section.appendChild(list);
-    return section;
-  }
-
-  function renderTopics(d) {
-    const NUMERALS = ['i.','ii.','iii.','iv.','v.','vi.','vii.','viii.','ix.','x.'];
-    const section = el('section', null);
-    section.id = 'topics';
-    section.appendChild(sectionHead(d.num, d.label, d.title));
-
-    const ul = el('ul', 'topics');
-    d.items.forEach((name, i) => {
-      const li = el('li');
-      li.appendChild(el('span', 'topic-num', NUMERALS[i] || `${i+1}.`));
-      li.appendChild(el('span', 'topic-name', name));
-      ul.appendChild(li);
-    });
-    section.appendChild(ul);
     return section;
   }
 
@@ -184,6 +204,12 @@
     const grid = el('div', 'people');
     d.people.forEach(p => {
       const card = el('div', 'person');
+      if (p.photo) {
+        const img = el('img', 'person-photo');
+        img.src = p.photo;
+        img.alt = p.name;
+        card.appendChild(img);
+      }
       card.appendChild(el('div', 'name', p.name));
       card.appendChild(el('div', 'role', p.role));
       card.appendChild(el('div', 'bio',  p.bio));
@@ -191,22 +217,6 @@
       grid.appendChild(card);
     });
     section.appendChild(grid);
-    return section;
-  }
-
-  function renderTimeline(d) {
-    const section = el('section', null);
-    section.id = 'timeline';
-    section.appendChild(sectionHead(d.num, d.label, d.title));
-
-    const ul = el('ul', 'timeline');
-    d.items.forEach(item => {
-      const li = el('li', item.now ? 'now' : null);
-      li.appendChild(el('span', 'when', item.when));
-      li.appendChild(el('span', 'what', item.what));
-      ul.appendChild(li);
-    });
-    section.appendChild(ul);
     return section;
   }
 
@@ -267,11 +277,11 @@
     wrap.appendChild(renderNav(SITE.nav));
     wrap.appendChild(renderHero(SITE.hero));
     wrap.appendChild(renderAbout(SITE.about));
-    wrap.appendChild(renderProgramme(SITE.programme));
     wrap.appendChild(renderTopics(SITE.topics));
+    wrap.appendChild(renderTimeline(SITE.timeline));
+    wrap.appendChild(renderProgramme(SITE.programme));
     wrap.appendChild(renderSpeakers(SITE.speakers));
     wrap.appendChild(renderCommittee(SITE.committee));
-    wrap.appendChild(renderTimeline(SITE.timeline));
 
     const involved = renderInvolved(SITE.involved);
     if (involved) wrap.appendChild(involved);
