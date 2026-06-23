@@ -141,7 +141,7 @@ const SITE = {
     title: 'Key dates.',
 
     items: [
-      { when: 'June–July 2026',  what: 'Venue confirmation · early-joiner social dinner', now: true  },
+      { when: '20 July 2026',  what: 'Venue confirmation · early-joiner social dinner', now: true  },
       { when: 'August 2026',     what: 'Speaker invitations · workshop topic leads identified · Community Council mailing list established', now: false },
       { when: 'Sept–Oct 2026',   what: 'Website live · event announced · call for poster abstracts opens · Council agenda circulated', now: false },
       { when: 'November 2026',   what: 'Speaker programme confirmed and published', now: false },
