@@ -25,6 +25,15 @@
    • HTML entities: &amp; = &,  &nbsp; = non-breaking space.
    • To comment out a nav link, set  enabled: false.
    • To comment out a committee member's IEEE badge, set  ieee: null.
+   • To add a committee member's headshot, set  photo: 'people/name.jpg'
+     (or any image path/URL). Leave  photo: null  to show no image.
+     Square images work best (they're cropped to a circle).
+   • To add a banner image to the hero section, set  hero.banner
+     to an image path or URL (e.g. 'banner.jpg'). A dark overlay is
+     applied automatically so the title text stays readable. Leave
+     banner: null  for the current generative background only.
+     Wide images (1600px+) work best — it's cropped to cover the
+     hero area at any screen size.
    • Timeline: set  now: true  on the currently-active item.
 ================================================================ */
 
@@ -64,12 +73,20 @@ const SITE = {
     title:   'A regional forum for <em>computational imaging</em>.',
     lede:    'One day in Sydney for the people designing optics, sensors and algorithms together — from inverse problems and Fourier methods to event cameras and end-to-end optics.',
 
+    /* Banner image behind the hero section, with a dark overlay
+       applied automatically (see style.css .has-banner). */
+    banner: 'CameraPrototypeWithAlignmentLaser.jpg',
+
     /* info card (right side) */
     card: [
-      { label: 'Date',   value: '16 February 2027' },
-      { label: 'Where',  value: 'Greater Sydney<br><span style="color:var(--muted)">USyd / WSU Westmead (TBC Aug&nbsp;2026)</span>' },
-      { label: 'Format', value: 'Talks, breakouts,<br>posters, council' },
-      { label: 'Cost',   value: '—' },
+      { section: true, label: 'Social Mixer · July 2026' },
+      { label: 'Date',   value: '20 July 2026, 5–9pm' },
+      { label: 'Where',  value: 'Blackwattle Brewery<br><span style="color:var(--muted)">Alexandria, Sydney</span>' },
+      { label: 'Format', value: 'Social mixer to connect the community' },
+      { section: true, label: 'Workshop · Feb 2027' },
+      { label: 'Date',  value: '16 February 2027' },
+      { label: 'Where', value: 'Greater Sydney, TBC' },
+      { label: 'Format', value: 'Talks, breakouts, posters, council'}
     ],
     badge: 'Free to attend',
   },
@@ -86,25 +103,58 @@ const SITE = {
     paragraphs: [
       {
         lead: true,
-        text: 'Computational imaging is the co-design of optics, sensors, mathematics and computing — extracting information from light beyond what traditional cameras afford. The field underpins advances in medical imaging, astronomy, space, and robotics.',
+        text: 'Computational imaging is the co-design of optics, sensors, mathematics and computing to extract information from light beyond what traditional cameras afford. The field underpins advances in  medical imaging, astronomy, space, and robotics.'
       },
       {
-        text: 'Australian optics and photonics research is thriving. But optical engineering and computational imaging — design, fabrication, systems integration, and computational methods — do not receive the same institutional recognition or structured teaching as in the US or Europe. The result is a structural gap: people working on imaging systems across universities, CSIRO, defence, and industry share few formal community touchpoints.',
+        text: 'Australian optics and photonics research is thriving. But optical engineering and computational imaging does not receive the same institutional recognition or structured teaching as in the US or Europe. The result is  a structural gap: people working on imaging systems across research and industry share few formal community touchpoints. This workshop is a deliberate attempt to everyone in the community into one room.'
       },
       {
-        text: 'Early-career researchers have limited regional venues to present, collaborate, and form a professional identity in the field. Industry lacks an interface with academics working at the edge of imaging research. This workshop is a deliberate attempt to bring that community into one room.',
+        text: 'A direct precedent is <a href="https://bracewell.science" target="_blank" rel="noopener">Bracewell@70</a> (Macquarie, 2025), which marked seventy years since Ron Bracewell\'s foundational contributions to Fourier methods in imaging. It drew attendees from astronomy, medical imaging, robotics, signal processing and optics, demonstrating clear appetite for focused cross-disciplinary events.',
       },
-      {
-        text: 'A direct precedent is <a href="https://bracewell.science" target="_blank" rel="noopener">Bracewell@70</a> (Macquarie, 2025), which marked seventy years since Ron Bracewell\'s foundational contributions to Fourier methods in imaging — work done in Australia that shaped aperture synthesis, computed tomography, and image reconstruction. It drew attendees from astronomy, medical imaging, robotics, signal processing and optics, demonstrating clear appetite for focused cross-disciplinary events.',
-      },
+    ],
+  },
+  /* ─────────────────────────────────────────────────────────────
+     SECTION 02 — TOPICS
+  ───────────────────────────────────────────────────────────── */
+  topics: {
+    num:   '02',
+    label: 'Topics',
+    title: 'What we\'ll cover.',
+
+    /* Roman numerals are generated automatically — just list the names. */
+    items: [
+      'Inverse problems &amp; image reconstruction',
+      'Diffractive &amp; Fourier optics',
+      'Neuromorphic &amp; event-based sensing',
+      'Biomedical &amp; astronomical imaging',
+      'Translational research &amp; industry impact',
     ],
   },
 
   /* ─────────────────────────────────────────────────────────────
-     SECTION 02 — PROGRAMME
+     SECTION 03 — TIMELINE
+     now: true  →  highlighted row (current period)
+  ───────────────────────────────────────────────────────────── */
+  timeline: {
+    num:   '03',
+    label: 'Timeline',
+    title: 'Key dates.',
+
+    items: [
+      { when: '20 July 2026',  what: 'Venue confirmation · early-joiner social dinner', now: true  },
+      { when: 'August 2026',     what: 'Speaker invitations · workshop topic leads identified · Community Council mailing list established', now: false },
+      { when: 'Sept–Oct 2026',   what: 'Website live · event announced · call for poster abstracts opens · Council agenda circulated', now: false },
+      { when: 'November 2026',   what: 'Speaker programme confirmed and published', now: false },
+      { when: 'January 2027',    what: 'Catering and logistics confirmed · poster submission deadline', now: false },
+      { when: '16 Feb 2027',     what: '<strong>Event held</strong> — Greater Sydney', now: false },
+    ],
+  },
+
+  /* ─────────────────────────────────────────────────────────────
+     SECTION 04 — PROGRAMME
   ───────────────────────────────────────────────────────────── */
   programme: {
-    num:   '02',
+    num:   '04',
     label: 'Programme',
     title: 'A full day, built for <em>depth and exchange</em>.',
 
@@ -142,29 +192,13 @@ const SITE = {
     ],
   },
 
-  /* ─────────────────────────────────────────────────────────────
-     SECTION 03 — TOPICS
-  ───────────────────────────────────────────────────────────── */
-  topics: {
-    num:   '03',
-    label: 'Topics',
-    title: 'What we\'ll cover.',
 
-    /* Roman numerals are generated automatically — just list the names. */
-    items: [
-      'Inverse problems &amp; image reconstruction',
-      'Diffractive &amp; Fourier optics',
-      'Neuromorphic &amp; event-based sensing',
-      'Biomedical &amp; astronomical imaging',
-      'Translational research &amp; industry impact',
-    ],
-  },
 
   /* ─────────────────────────────────────────────────────────────
-     SECTION 04 — SPEAKERS
+     SECTION 05 — SPEAKERS
   ───────────────────────────────────────────────────────────── */
   speakers: {
-    num:   '04',
+    num:   '05',
     label: 'Speakers',
     title: 'Invitations are <em>in flight</em>.',
 
@@ -180,12 +214,12 @@ const SITE = {
   },
 
   /* ─────────────────────────────────────────────────────────────
-     SECTION 05 — COMMITTEE
+     SECTION 06 — COMMITTEE
      ieee: null   →  no badge shown
      ieee: 'IEEE SPS Member'  →  badge shown
   ───────────────────────────────────────────────────────────── */
   committee: {
-    num:   '05',
+    num:   '06',
     label: 'Committee',
     title: 'The organising team.',
 
@@ -195,52 +229,40 @@ const SITE = {
         role: 'Univ. of Sydney',
         bio:  'Computational imaging, robotic imaging and perception.',
         ieee: 'IEEE SPS Member',
+        photo: 'people/DonaldDansereau.jpg',
       },
       {
         name: 'A/Prof. Benjamin Pope',
         role: 'Macquarie University',
         bio:  'Astronomical imaging, Fourier optics. Organiser of Bracewell@70.',
         ieee: null,
+        photo: 'people/BenjaminPope.jpeg',
       },
       {
         name: 'Dr. Jennifer Wakulicz',
         role: 'Univ. of Sydney',
         bio:  'Perception, probabilistic modelling, information theory.',
         ieee: 'IEEE Member',
+        photo: 'people/JenniferWakulicz.jpeg',
       },
       {
         name: 'Dr. James Gray',
         role: 'Univ. of Sydney',
         bio:  'Computational imaging, light field imaging, 3D reconstruction.',
         ieee: 'IEEE SPS Member',
+        photo: 'people/JamesGray.jpeg',
       },
       {
         name: 'Dr. Nimrod Kruger',
         role: 'Western Sydney University',
         bio:  'Computational imaging, event-based sensing.',
         ieee: null,
+        photo: 'people/NimrodKruger.jpeg',
       },
     ],
   },
 
-  /* ─────────────────────────────────────────────────────────────
-     SECTION 06 — TIMELINE
-     now: true  →  highlighted row (current period)
-  ───────────────────────────────────────────────────────────── */
-  timeline: {
-    num:   '06',
-    label: 'Timeline',
-    title: 'Key dates.',
 
-    items: [
-      { when: 'June–July 2026',  what: 'Venue confirmation · early-joiner social dinner', now: true  },
-      { when: 'August 2026',     what: 'Speaker invitations · workshop topic leads identified · Community Council mailing list established', now: false },
-      { when: 'Sept–Oct 2026',   what: 'Website live · event announced · call for poster abstracts opens · Council agenda circulated', now: false },
-      { when: 'November 2026',   what: 'Speaker programme confirmed and published', now: false },
-      { when: 'January 2027',    what: 'Catering and logistics confirmed · poster submission deadline', now: false },
-      { when: '16 Feb 2027',     what: '<strong>Event held</strong> — Greater Sydney', now: false },
-    ],
-  },
 
   /* ─────────────────────────────────────────────────────────────
      SECTION 07 — GET INVOLVED  (currently hidden)
