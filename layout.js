@@ -95,12 +95,18 @@
 
     /* right — info card */
     const aside = el('aside', 'hero-meta');
-    const dl    = el('dl');
+    let dl = el('dl');
     d.card.forEach(row => {
-      dl.appendChild(el('dt', null, row.label));
-      dl.appendChild(el('dd', null, row.value));
+      if (row.section) {
+        if (dl.children.length) aside.appendChild(dl);
+        aside.appendChild(el('p', 'card-section-head', row.label));
+        dl = el('dl');
+      } else {
+        dl.appendChild(el('dt', null, row.label));
+        dl.appendChild(el('dd', null, row.value));
+      }
     });
-    aside.appendChild(dl);
+    if (dl.children.length) aside.appendChild(dl);
     aside.appendChild(el('span', 'free-badge', d.badge));
     grid.appendChild(aside);
 

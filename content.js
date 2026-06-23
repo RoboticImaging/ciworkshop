@@ -79,10 +79,14 @@ const SITE = {
 
     /* info card (right side) */
     card: [
-      { label: 'Date',   value: '16 February 2027' },
-      { label: 'Where',  value: 'Greater Sydney<br><span style="color:var(--muted)">USyd / WSU Westmead (TBC Aug&nbsp;2026)</span>' },
-      { label: 'Format', value: 'Talks, breakouts,<br>posters, council' },
-      { label: 'Cost',   value: '—' },
+      { section: true, label: 'Social Mixer · July 2026' },
+      { label: 'Date',   value: '20 July 2026, 5–9pm' },
+      { label: 'Where',  value: 'Blackwattle Brewery<br><span style="color:var(--muted)">Alexandria, Sydney</span>' },
+      { label: 'Format', value: 'Social mixer to connect the community' },
+      { section: true, label: 'Workshop · Feb 2027' },
+      { label: 'Date',  value: '16 February 2027' },
+      { label: 'Where', value: 'Greater Sydney, TBC' },
+      { label: 'Format', value: 'Talks, breakouts, posters, council'}
     ],
     badge: 'Free to attend',
   },
