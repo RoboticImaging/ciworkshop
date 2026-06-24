@@ -53,10 +53,9 @@
   ════════════════════════════════════════════════════════════ */
 
   /* ── ★ TUNE: canvas parameters ─── */
-  const N_COMP      = 6;      /* number of superimposed plane-wave components     */
+  const N_COMP      = 3;      /* number of superimposed plane-wave components     */
   const AMPLITUDE   = 10;     /* ±DN  peak pixel value delta                      */
   const SCROLL_SCALE = 0.8;   /* scroll sensitivity: 1.0 = full range, 0.8 = −20% */
-  const STF_FPS     = 12;     /* canvas redraws per second (~12 is smooth enough)  */
 
   /* ── ★ TUNE: per-component parameter ranges (seeded once at load) ── */
   /* All values are uniform random draws from [lo, hi].                 */
@@ -64,7 +63,7 @@
     angle: [0,       Math.PI],   /* wave propagation direction (rad)               */
     f0:    [0.0015,  0.005  ],   /* spatial frequency at scroll=0 (cycles/px)      */
     df:    [0.008,   0.022  ],   /* Δspatial frequency over full scroll range       */
-    spd0:  [0.0004,  0.0010 ],   /* phase drift speed (rad/ms), scroll-independent  */
+    spd0:  [0,       0      ],   /* phase drift speed (rad/ms), scroll-independent  */
     w:     [0.5,     1.0    ],   /* component weight before normalisation           */
   };
 
@@ -125,19 +124,7 @@
   }
 
   /* ── render one frame ─── */
-  let lastT = null;
-  const STF_INTERVAL = 1000 / STF_FPS;
-
   function drawSTF(t) {
-    /* advance phase accumulators using elapsed wall-clock time */
-    if (lastT !== null) {
-      const dt = t - lastT;
-      for (let k = 0; k < N_COMP; k++) {
-        comps[k].phase += comps[k].spd0 * dt;
-      }
-    }
-    lastT = t;
-
     const s  = scrollProgress();
     const s_ = s * SCROLL_SCALE;   /* reduced scroll sensitivity */
 
@@ -371,13 +358,14 @@
      3. ANIMATION LOOP
   ════════════════════════════════════════════════════════════ */
 
-  let lastSTF = 0;
+  let lastScrollPos = -1;  /* track previous scroll to detect changes */
 
   function loop(t) {
-    /* canvas redraws at STF_FPS to keep CPU load acceptable */
-    if (t - lastSTF > STF_INTERVAL) {
+    /* canvas redraws only when scroll position changes (no time drift) */
+    const s = scrollProgress();
+    if (s !== lastScrollPos) {
       drawSTF(t);
-      lastSTF = t;
+      lastScrollPos = s;
     }
     /* lens position updates every frame (cheap — CSS transform only) */
     updateLenses();
