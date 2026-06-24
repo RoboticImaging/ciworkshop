@@ -9,19 +9,13 @@
 
    1. STF BACKGROUND CANVAS  ──────────────────────────────────────
       A fixed full-viewport canvas rendering a superposition of N
-      sinusoidal plane-wave gratings. All grating parameters vary
-      linearly with scroll position. Phase is accumulated via a
-      running integrator (not analytically from scroll), so
-      scrolling never causes a phase discontinuity.
+      sinusoidal plane-wave gratings. The pattern is static once drawn
+      and is not updated by scroll or time.
 
       TUNING PARAMETERS (search for "★ TUNE"):
         N_COMP        number of superimposed components
-        f0 range      spatial frequency at scroll = 0  (cy/px)
-        df range      Δfrequency from scroll 0 → 1
-        spd0 range    phase drift speed (rad/ms), constant
+        f0 range      base spatial frequency (cycles/px)
         AMPLITUDE     peak pixel value delta (±DN)
-        SCROLL_SCALE  scroll sensitivity (1.0 = full, 0.8 = −20%)
-        STF_FPS       canvas redraw rate (frames/sec)
 
    2. LENS RIG  ───────────────────────────────────────────────────
       Three instances of lens.png in a fixed right-column stack.
@@ -55,7 +49,7 @@
   /* ── ★ TUNE: canvas parameters ─── */
   const N_COMP      = 3;      /* number of superimposed plane-wave components     */
   const AMPLITUDE   = 10;     /* ±DN  peak pixel value delta                      */
-  const SCROLL_SCALE = 0.8;   /* scroll sensitivity: 1.0 = full range, 0.8 = −20% */
+  const SCROLL_SCALE = 0;     /* no scroll-driven frequency modulation */
 
   /* ── ★ TUNE: per-component parameter ranges (seeded once at load) ── */
   /* All values are uniform random draws from [lo, hi].                 */
@@ -92,6 +86,7 @@
     H = canvas.height = window.innerHeight;
     imgData = ctx.createImageData(W, H);
     buf32   = new Uint32Array(imgData.data.buffer);
+    renderVisuals();
   }
   resizeCanvas();
   window.addEventListener('resize', resizeCanvas);
@@ -117,16 +112,10 @@
   const cosA = comps.map(c => Math.cos(c.angle));
   const sinA = comps.map(c => Math.sin(c.angle));
 
-  /* ── scroll helper ─── */
-  function scrollProgress() {
-    const max = document.documentElement.scrollHeight - window.innerHeight;
-    return max > 0 ? window.scrollY / max : 0;
-  }
-
   /* ── render one frame ─── */
-  function drawSTF(t) {
-    const s  = scrollProgress();
-    const s_ = s * SCROLL_SCALE;   /* reduced scroll sensitivity */
+  function drawSTF() {
+    const s  = 0;
+    const s_ = s * SCROLL_SCALE;   /* no scroll sensitivity */
 
     /* grating origin at viewport centre — "zero crossing" stays centred */
     const cx = W * 0.5;
@@ -241,7 +230,7 @@
                             + LENS_GAP*2 + LENS_SIZE_LARGE              */
   const STACK_REST = LENS_SIZE_LARGE + LENS_GAP + LENS_SIZE_SMALL + LENS_GAP + LENS_SIZE_LARGE;
 
-  function lensYCentres(s) {
+  function lensYCentres() {
     const rigH   = window.innerHeight;
     const mid    = rigH / 2;                       /* rig vertical midpoint */
 
@@ -250,14 +239,11 @@
     const yTopRest = yMidRest - LENS_SIZE_SMALL / 2 - LENS_GAP - LENS_SIZE_LARGE / 2;
     const yBotRest = yMidRest + LENS_SIZE_SMALL / 2 + LENS_GAP + LENS_SIZE_LARGE / 2;
 
-    /* scroll-driven offsets (same sine functions as before) */
-    const dTop = -AMP_TOP * Math.sin(s * Math.PI);
-    const dBot =  AMP_BOT * Math.sin(s * 1.5 * Math.PI);
-
+    /* static lens positions; no scroll movement */
     return {
-      yTop: yTopRest + dTop,
+      yTop: yTopRest,
       yMid: yMidRest,           /* middle lens is fixed reference */
-      yBot: yBotRest + dBot,
+      yBot: yBotRest,
     };
   }
 
@@ -348,31 +334,21 @@
 
   /* ── combined update ─── */
   function updateLenses() {
-    const s       = scrollProgress();
-    const centres = lensYCentres(s);
+    const centres = lensYCentres();
     positionLensImages(centres);
     drawRays(traceRays(centres));
   }
 
   /* ════════════════════════════════════════════════════════════
-     3. ANIMATION LOOP
+     3. ONE-OFF STATIC RENDER
   ════════════════════════════════════════════════════════════ */
 
-  let lastScrollPos = -1;  /* track previous scroll to detect changes */
-
-  function loop(t) {
-    /* canvas redraws only when scroll position changes (no time drift) */
-    const s = scrollProgress();
-    if (s !== lastScrollPos) {
-      drawSTF(t);
-      lastScrollPos = s;
-    }
-    /* lens position updates every frame (cheap — CSS transform only) */
+  function renderVisuals() {
+    drawSTF();
     updateLenses();
-    requestAnimationFrame(loop);
   }
 
-  requestAnimationFrame(loop);
+  renderVisuals();
 
   /* ════════════════════════════════════════════════════════════
      4. Z-INDEX GUARD
