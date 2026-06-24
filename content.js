@@ -142,10 +142,9 @@ const SITE = {
 
     items: [
       { when: '20 July 2026',  what: 'Venue confirmation · early-joiner social dinner', now: true  },
-      { when: 'August 2026',     what: 'Speaker invitations · workshop topic leads identified · Community Council mailing list established', now: false },
-      { when: 'Sept–Oct 2026',   what: 'Website live · event announced · call for poster abstracts opens · Council agenda circulated', now: false },
+      { when: 'Sept–Oct 2026',   what: 'Call for poster abstracts opens', now: false },
       { when: 'November 2026',   what: 'Speaker programme confirmed and published', now: false },
-      { when: 'January 2027',    what: 'Catering and logistics confirmed · poster submission deadline', now: false },
+      { when: 'January 2027',    what: 'Poster submission deadline', now: false },
       { when: '16 Feb 2027',     what: '<strong>Event held</strong> — Greater Sydney', now: false },
     ],
   },
