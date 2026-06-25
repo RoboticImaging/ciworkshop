@@ -71,7 +71,7 @@ const SITE = {
   hero: {
     eyebrow: 'Inaugural edition · NSW &amp; ACT',
     title:   'A regional forum for <em>computational imaging</em>.',
-    lede:    'One day in Sydney for the people designing optics, sensors and algorithms together — from inverse problems and Fourier methods to event cameras and end-to-end optics.',
+    lede:    'A day for the people designing optics, sensors and algorithms to come together in Sydney. Talking inverse problems, Fourier methods, event cameras and more.',
 
     /* Banner image behind the hero section, with a dark overlay
        applied automatically (see style.css .has-banner). */
@@ -106,7 +106,7 @@ const SITE = {
         text: 'Computational imaging is the co-design of optics, sensors, mathematics and computing to extract information from light beyond what traditional cameras afford. The field underpins advances in  medical imaging, astronomy, space, and robotics.'
       },
       {
-        text: 'Australian optics and photonics research is thriving. But optical engineering and computational imaging does not receive the same institutional recognition or structured teaching as in the US or Europe. The result is  a structural gap: people working on imaging systems across research and industry share few formal community touchpoints. This workshop is a deliberate attempt to everyone in the community into one room.'
+        text: 'Australian optics and photonics research is thriving. But optical engineering and computational imaging does not receive the same institutional recognition or structured teaching as in the US or Europe. The result is a structural gap: people working on imaging systems across research and industry share few community touchpoints. This workshop is a deliberate attempt to put everyone in the community into one room.'
       },
       {
         text: 'A direct precedent is <a href="https://bracewell.science" target="_blank" rel="noopener">Bracewell@70</a> (Macquarie, 2025), which marked seventy years since Ron Bracewell\'s foundational contributions to Fourier methods in imaging. It drew attendees from astronomy, medical imaging, robotics, signal processing and optics, demonstrating clear appetite for focused cross-disciplinary events.',
@@ -128,6 +128,7 @@ const SITE = {
       'Neuromorphic &amp; event-based sensing',
       'Biomedical &amp; astronomical imaging',
       'Translational research &amp; industry impact',
+      ' - community input. Tell us what's important', 
     ],
   },
 
