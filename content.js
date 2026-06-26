@@ -303,6 +303,7 @@ const SITE = {
         heading: 'The Workshop',
         lines: [
           'A regional forum for computational imaging research across New South Wales and the Australian Capital Territory.',
+          'Reach out to us at:',
           '<a href="mailto:hello@ciworkshop.au">hello@ciworkshop.au</a>',
         ],
       },
