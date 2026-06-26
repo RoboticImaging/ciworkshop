@@ -128,7 +128,7 @@ const SITE = {
       'Neuromorphic &amp; event-based sensing',
       'Biomedical &amp; astronomical imaging',
       'Translational research &amp; industry impact',
-      ' - community input. Tell us what\'s important', 
+      'Community input - Tell us what\'s important', 
     ],
   },
 
