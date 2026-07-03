@@ -218,6 +218,7 @@ const SITE = {
        automatically from the "invitations in flight" placeholder above
        to this list. Leave the array empty (or delete it) to keep showing
        the placeholder text/disclosure instead. */
+    /*
     people: [
       {
         name:  'Prof. Tat-Jun Chin',
@@ -225,8 +226,8 @@ const SITE = {
         bio:   'Prof. Tat-Jun Chin\'s research interests include neuromorphic sensing and optimisation for computer vision and machine learning with a focus on applying it to intelligent satellites and space robotics. He has over 150 publications on the subject and won multiple awards including: a CVPR award (2015), a BMVC award (2018), Best of ECCV (2018), three DST Awards (2015, 2017, 2021), an IAPR Award (2019), a RAL Best Paper Award (2021), and an ECCV Best Paper Award Finalist (2024).',
         ieee:  null,                       // or e.g. 'IEEE SPS Member'
         photo: 'speakers/TJ_Chin.jpeg',
-      },
-    ],
+      }, 
+    ],*/
   },
 
   /* ─────────────────────────────────────────────────────────────
