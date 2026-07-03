@@ -104,13 +104,13 @@ const SITE = {
     paragraphs: [
       {
         lead: true,
-        text: 'Computational imaging is the co-design of optics, sensors, mathematics and computing to extract information from light beyond what traditional cameras afford. The field underpins advances in  medical imaging, astronomy, space, and robotics.'
+        text: 'Computational imaging is the co-design of optics, sensors, mathematics and computing to extract information from light beyond what traditional cameras afford. The field underpins advances in  medical imaging, astronomy, space, microscopy, and robotics.'
       },
       {
         text: 'Australian optics and photonics research is thriving. But optical engineering and computational imaging does not receive the same institutional recognition or structured teaching as in the US or Europe. The result is a structural gap: people working on imaging systems across research and industry share few community touchpoints. This workshop is a deliberate attempt to put everyone in the community into one room.'
       },
       {
-        text: 'A direct precedent is <a href="https://bracewell.science" target="_blank" rel="noopener">Bracewell@70</a> (Macquarie, 2025), which marked seventy years since Ron Bracewell\'s foundational contributions to Fourier methods in imaging. It drew attendees from astronomy, medical imaging, robotics, signal processing and optics, demonstrating clear appetite for focused cross-disciplinary events.',
+        text: 'A direct precedent is <a href="https://bracewell.science" target="_blank" rel="noopener">Bracewell@70</a> (Macquarie, 2025), which marked seventy years since Ron Bracewell\'s foundational contributions to Fourier methods in imaging. It drew attendees from astronomy, medical imaging, robotics, microscopy, signal processing and optics, demonstrating clear appetite for focused cross-disciplinary events.',
       },
     ],
   },
