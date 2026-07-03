@@ -77,7 +77,7 @@ You can also point `photo` at an external URL if you'd rather host images elsewh
 
 Single file. Open `index.html`, edit, push. Sections are marked with comments — `<!-- ——— hero -->`, `<!-- ——— programme -->`, etc.
 
-To add confirmed speakers, replace the `disclosure` block inside the `#speakers` section with proper cards (the `.person` pattern from `#committee` works well).
+To add confirmed speakers, add entries to `SITE.speakers.people` in `content.js` (same `name` / `role` / `bio` / `ieee` / `photo` shape as `#committee`). As soon as `people` has at least one entry, `#speakers` automatically switches from the "invitations in flight" placeholder to a single-column list of horizontal rows (photo left, blurb right) — no changes needed in `layout.js`.
 
 ## Notes
 

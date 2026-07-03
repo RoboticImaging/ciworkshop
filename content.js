@@ -203,15 +203,30 @@ const SITE = {
     label: 'Speakers',
     title: 'Invitations are <em>in flight</em>.',
 
-    text: 'Speaker invitations are being extended to prominent Australian-based figures in computational imaging. Confirmed names will be listed here as responses come in. We expect to publish the speaker programme in November 2026.',
+    text: 'Speaker invitations are being extended to prominent Australian-based figures in computational imaging. Confirmed names will be listed here as responses come in. We expect to publish the full speaker programme in November 2026.',
+    //
+    // disclosure: {
+    //   heading: 'Under invitation or expressed initial interest:',
+    //   names:   'Prof. Arti Agrawal (UTS) · Prof. Peter Tuthill (USyd) · Prof. Maryanne Large (USyd) · Prof. Paul Hurley (WSU)',
+    // },
+    //
+    // disclosure: null,
 
-    /* Uncomment and populate when ready:
-    disclosure: {
-      heading: 'Under invitation or expressed initial interest:',
-      names:   'Prof. Arti Agrawal (UTS) · Prof. Peter Tuthill (USyd) · Prof. Maryanne Large (USyd) · Prof. Paul Hurley (WSU)',
-    },
-    */
-    disclosure: null,
+    /* Confirmed speakers — same photo + bio pattern as #committee, but
+       rendered as a single-column list of horizontal rows instead of a
+       grid. Add one entry per confirmed speaker and the section switches
+       automatically from the "invitations in flight" placeholder above
+       to this list. Leave the array empty (or delete it) to keep showing
+       the placeholder text/disclosure instead. */
+    people: [
+      {
+        name:  'Prof. Firstname Lastname',
+        role:  'Institution',
+        bio:   'One or two sentences on their work and talk focus.',
+        ieee:  null,                       // or e.g. 'IEEE SPS Member'
+        photo: 'people/FirstnameLastname.jpg',
+      },
+    ],
   },
 
   /* ─────────────────────────────────────────────────────────────
