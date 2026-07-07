@@ -83,11 +83,12 @@ const SITE = {
       { label: 'Date',   value: '20 July 2026, 5–9pm' },
       { label: 'Where',  value: 'Blackwattle Brewery<br><span style="color:var(--muted)">Alexandria, Sydney</span>' },
       { label: 'Format', value: 'Social mixer to connect the community' },
-      {label: 'RSVP', value: '<a href="https://forms.gle/innLs3eedNcYeTgx5" target="_blank" rel="noopener"> https://forms.gle/innLs3eedNcYeTgx5 </a>'},
       { section: true, label: 'Workshop · Feb 2027' },
       { label: 'Date',  value: '16 February 2027' },
       { label: 'Where', value: 'Greater Sydney, TBC' },
       { label: 'Format', value: 'Talks, breakouts, posters, council'}
+      { section: true, label: 'Register Interest' },      
+      { label: 'RSVP', value: '<a href="Register your interest in the workshop / social" target="_blank" rel="noopener"> https://forms.gle/innLs3eedNcYeTgx5 </a>'},
     ],
     badge: 'Free to attend',
   },
