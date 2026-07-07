@@ -187,6 +187,45 @@
     section.id = 'speakers';
     section.appendChild(sectionHead(d.num, d.label, d.title));
 
+    /* Confirmed speakers: single-column horizontal rows (photo + blurb),
+       same visual language as #committee but one column, not a grid.
+       Wrapped in the same .section-body grid as the prose above so the
+       rows line up with the prose's left margin, not the section edge. */
+    if (d.people && d.people.length) {
+      if (d.text) {
+        const introBody  = el('div', 'section-body');
+        introBody.appendChild(el('div'));
+        const prose = el('div', 'prose');
+        prose.appendChild(el('p', null, d.text));
+        introBody.appendChild(prose);
+        section.appendChild(introBody);
+      }
+
+      const listBody = el('div', 'section-body');
+      listBody.appendChild(el('div'));
+      const list = el('div', 'speakers-list');
+      d.people.forEach(p => {
+        const row = el('div', 'speaker-row');
+        if (p.photo) {
+          const img = el('img', 'speaker-photo');
+          img.src = p.photo;
+          img.alt = p.name;
+          row.appendChild(img);
+        }
+        const speakerBody = el('div', 'speaker-body');
+        speakerBody.appendChild(el('div', 'name', p.name));
+        speakerBody.appendChild(el('div', 'role', p.role));
+        speakerBody.appendChild(el('div', 'bio',  p.bio));
+        if (p.ieee) speakerBody.appendChild(el('span', 'ieee', p.ieee));
+        row.appendChild(speakerBody);
+        list.appendChild(row);
+      });
+      listBody.appendChild(list);
+      section.appendChild(listBody);
+      return section;
+    }
+
+    /* Placeholder state: no confirmed speakers yet. */
     const body  = el('div', 'section-body');
     body.appendChild(el('div'));
     const prose = el('div', 'prose');

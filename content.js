@@ -83,6 +83,7 @@ const SITE = {
       { label: 'Date',   value: '20 July 2026, 5–9pm' },
       { label: 'Where',  value: 'Blackwattle Brewery<br><span style="color:var(--muted)">Alexandria, Sydney</span>' },
       { label: 'Format', value: 'Social mixer to connect the community' },
+      {label: 'RSVP', value: '<a href="https://forms.gle/innLs3eedNcYeTgx5" target="_blank" rel="noopener"> https://forms.gle/innLs3eedNcYeTgx5 </a>'},
       { section: true, label: 'Workshop · Feb 2027' },
       { label: 'Date',  value: '16 February 2027' },
       { label: 'Where', value: 'Greater Sydney, TBC' },
@@ -103,13 +104,13 @@ const SITE = {
     paragraphs: [
       {
         lead: true,
-        text: 'Computational imaging is the co-design of optics, sensors, mathematics and computing to extract information from light beyond what traditional cameras afford. The field underpins advances in  medical imaging, astronomy, space, and robotics.'
+        text: 'Computational imaging is the co-design of optics, sensors, mathematics and computing to extract information from light beyond what traditional cameras afford. The field underpins advances in  medical imaging, astronomy, space, microscopy, and robotics.'
       },
       {
         text: 'Australian optics and photonics research is thriving. But optical engineering and computational imaging does not receive the same institutional recognition or structured teaching as in the US or Europe. The result is a structural gap: people working on imaging systems across research and industry share few community touchpoints. This workshop is a deliberate attempt to put everyone in the community into one room.'
       },
       {
-        text: 'A direct precedent is <a href="https://bracewell.science" target="_blank" rel="noopener">Bracewell@70</a> (Macquarie, 2025), which marked seventy years since Ron Bracewell\'s foundational contributions to Fourier methods in imaging. It drew attendees from astronomy, medical imaging, robotics, signal processing and optics, demonstrating clear appetite for focused cross-disciplinary events.',
+        text: 'A direct precedent is <a href="https://bracewell.science" target="_blank" rel="noopener">Bracewell@70</a> (Macquarie, 2025), which marked seventy years since Ron Bracewell\'s foundational contributions to Fourier methods in imaging. It drew attendees from astronomy, medical imaging, robotics, microscopy, signal processing and optics, demonstrating clear appetite for focused cross-disciplinary events.',
       },
     ],
   },
@@ -202,15 +203,31 @@ const SITE = {
     label: 'Speakers',
     title: 'Invitations are <em>in flight</em>.',
 
-    text: 'Speaker invitations are being extended to prominent Australian-based figures in computational imaging. Confirmed names will be listed here as responses come in. We expect to publish the speaker programme in November 2026.',
+    text: 'Speaker invitations are being extended to prominent Australian-based figures in computational imaging. Confirmed names will be listed here as responses come in. We expect to publish the full speaker programme in November 2026.',
+    //
+    // disclosure: {
+    //   heading: 'Under invitation or expressed initial interest:',
+    //   names:   'Prof. Arti Agrawal (UTS) · Prof. Peter Tuthill (USyd) · Prof. Maryanne Large (USyd) · Prof. Paul Hurley (WSU)',
+    // },
+    //
+    // disclosure: null,
 
-    /* Uncomment and populate when ready:
-    disclosure: {
-      heading: 'Under invitation or expressed initial interest:',
-      names:   'Prof. Arti Agrawal (UTS) · Prof. Peter Tuthill (USyd) · Prof. Maryanne Large (USyd) · Prof. Paul Hurley (WSU)',
-    },
-    */
-    disclosure: null,
+    /* Confirmed speakers — same photo + bio pattern as #committee, but
+       rendered as a single-column list of horizontal rows instead of a
+       grid. Add one entry per confirmed speaker and the section switches
+       automatically from the "invitations in flight" placeholder above
+       to this list. Leave the array empty (or delete it) to keep showing
+       the placeholder text/disclosure instead. */
+    /*
+    people: [
+      {
+        name:  'Prof. Tat-Jun Chin',
+        role:  'Professorial Chair of Sentient Satellites',
+        bio:   'Prof. Tat-Jun Chin\'s research interests include neuromorphic sensing and optimisation for computer vision and machine learning with a focus on applying it to intelligent satellites and space robotics. He has over 150 publications on the subject and won multiple awards including: a CVPR award (2015), a BMVC award (2018), Best of ECCV (2018), three DST Awards (2015, 2017, 2021), an IAPR Award (2019), a RAL Best Paper Award (2021), and an ECCV Best Paper Award Finalist (2024).',
+        ieee:  null,                       // or e.g. 'IEEE SPS Member'
+        photo: 'speakers/TJ_Chin.jpeg',
+      }, 
+    ],*/
   },
 
   /* ─────────────────────────────────────────────────────────────
