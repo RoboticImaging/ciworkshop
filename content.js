@@ -9,12 +9,13 @@
    SITE.meta          page title, description, URL
    SITE.nav           top-bar navigation links
    SITE.hero          headline, lede, info card, badge
-   SITE.about         section 01 — About
-   SITE.programme     section 02 — Programme items
+   SITE.news          section 01 — News (photo + text items)
+   SITE.about         section 02 — About
    SITE.topics        section 03 — Topics list
-   SITE.speakers      section 04 — Speakers (placeholder text)
-   SITE.committee     section 05 — People cards
-   SITE.timeline      section 06 — Key dates
+   SITE.timeline      section 04 — Key dates
+   SITE.programme     section 05 — Programme items
+   SITE.speakers      section 06 — Speakers (placeholder text)
+   SITE.committee     section 07 — People cards
    SITE.footer        footer columns and colophon
 
    FORMATTING NOTES
@@ -35,6 +36,9 @@
      Wide images (1600px+) work best — it's cropped to cover the
      hero area at any screen size.
    • Timeline: set  now: true  on the currently-active item.
+   • News: add an entry to  SITE.news.items  (newest first). Set
+     photo: 'news/your-image.jpg'  (or a full URL), or  photo: null
+     to show no image for that item.
 ================================================================ */
 
 const SITE = {
@@ -57,6 +61,7 @@ const SITE = {
   nav: {
     mark: 'NSW · Computational Imaging Workshop',
     links: [
+      { label: 'News',       href: '#news',       enabled: true  },
       { label: 'About',      href: '#about',      enabled: true  },
       { label: 'Programme',  href: '#programme',  enabled: true  },
       { label: 'Topics',     href: '#topics',     enabled: true  },
@@ -79,12 +84,6 @@ const SITE = {
 
     /* info card (right side) */
     card: [
-      { section: true, label: 'Social Mixer · July 2026' },
-      { label: 'Date',   value: '20 July 2026, 5–9pm' },
-      { label: 'Where',  value: 'Blackwattle Brewery<br><span style="color:var(--muted)">Alexandria, Sydney</span>' },
-      { label: 'Format', value: 'Social mixer to connect the community' },
-      {label: 'RSVP', value: '<a href="https://forms.gle/innLs3eedNcYeTgx5" target="_blank" rel="noopener"> https://forms.gle/innLs3eedNcYeTgx5 </a>'},
-      { section: true, label: 'Workshop · Feb 2027' },
       { label: 'Date',  value: '16 February 2027' },
       { label: 'Where', value: 'Greater Sydney, TBC' },
       { label: 'Format', value: 'Talks, breakouts, posters, council'}
@@ -93,10 +92,31 @@ const SITE = {
   },
 
   /* ─────────────────────────────────────────────────────────────
-     SECTION 01 — ABOUT
+     SECTION 01 — NEWS
+     Each item: date / heading / text / photo.
+     Leave  photo: null  to show no image for that item.
+     Newest item should go first in the array.
+  ───────────────────────────────────────────────────────────── */
+  news: {
+    num:   '01',
+    label: 'News',
+    title: 'From the community.',
+
+    items: [
+      {
+        date:    '20 July 2026',
+        heading: 'Our first community social',
+        text:    'On 20 July 2026 we held our first NSW Computational Imaging community social, bringing together researchers, students and industry folk from across the country for an evening of conversation ahead of next year\'s workshop.',
+        photo:   'news/social-2026-07-20.jpg',
+      },
+    ],
+  },
+
+  /* ─────────────────────────────────────────────────────────────
+     SECTION 02 — ABOUT
   ───────────────────────────────────────────────────────────── */
   about: {
-    num:   '01',
+    num:   '02',
     label: 'About',
     title: 'Computational imaging deserves <em>a room of its own</em>.',
 
@@ -118,7 +138,7 @@ const SITE = {
      SECTION 02 — TOPICS
   ───────────────────────────────────────────────────────────── */
   topics: {
-    num:   '02',
+    num:   '03',
     label: 'Topics',
     title: 'What we\'ll cover.',
 
@@ -138,12 +158,11 @@ const SITE = {
      now: true  →  highlighted row (current period)
   ───────────────────────────────────────────────────────────── */
   timeline: {
-    num:   '03',
+    num:   '04',
     label: 'Timeline',
     title: 'Key dates.',
 
     items: [
-      { when: '20 July 2026',  what: 'Venue confirmation · early-joiner social dinner', now: true  },
       { when: 'Sept–Oct 2026',   what: 'Call for poster abstracts opens', now: false },
       { when: 'November 2026',   what: 'Speaker programme confirmed and published', now: false },
       { when: 'January 2027',    what: 'Poster submission deadline', now: false },
@@ -155,7 +174,7 @@ const SITE = {
      SECTION 04 — PROGRAMME
   ───────────────────────────────────────────────────────────── */
   programme: {
-    num:   '04',
+    num:   '05',
     label: 'Programme',
     title: 'A full day, built for <em>depth and exchange</em>.',
 
@@ -199,7 +218,7 @@ const SITE = {
      SECTION 05 — SPEAKERS
   ───────────────────────────────────────────────────────────── */
   speakers: {
-    num:   '05',
+    num:   '06',
     label: 'Speakers',
     title: 'Invitations are <em>in flight</em>.',
 
@@ -236,7 +255,7 @@ const SITE = {
      ieee: 'IEEE SPS Member'  →  badge shown
   ───────────────────────────────────────────────────────────── */
   committee: {
-    num:   '06',
+    num:   '07',
     label: 'Committee',
     title: 'The organising team.',
 
@@ -288,7 +307,7 @@ const SITE = {
   ───────────────────────────────────────────────────────────── */
   involved: {
     enabled: false,
-    num:   '07',
+    num:   '08',
     label: 'Get involved',
     title: 'Three ways to <em>take part</em>.',
 

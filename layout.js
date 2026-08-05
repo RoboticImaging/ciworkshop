@@ -9,13 +9,14 @@
    SECTION RENDERERS (one function per section):
      renderNav()        top bar
      renderHero()       hero with aperture motif
-     renderAbout()      section 01
-     renderProgramme()  section 02
+     renderNews()       section 01 (photo + text items)
+     renderAbout()      section 02
      renderTopics()     section 03
-     renderSpeakers()   section 04
-     renderCommittee()  section 05
-     renderTimeline()   section 06
-     renderInvolved()   section 07 (hidden by default)
+     renderTimeline()   section 04
+     renderProgramme()  section 05
+     renderSpeakers()   section 06
+     renderCommittee()  section 07
+     renderInvolved()   section 08 (hidden by default)
      renderFooter()     footer
 ================================================================ */
 
@@ -111,6 +112,37 @@
     grid.appendChild(aside);
 
     section.appendChild(grid);
+    return section;
+  }
+
+  function renderNews(d) {
+    if (!d.items || !d.items.length) return null;
+
+    const section = el('section', null);
+    section.id = 'news';
+    section.appendChild(sectionHead(d.num, d.label, d.title));
+
+    const body = el('div', 'section-body');
+    body.appendChild(el('div'));          /* empty left column, matches other sections */
+
+    const list = el('div', 'news-list');
+    d.items.forEach(item => {
+      const row = el('div', 'news-item');
+      if (item.photo) {
+        const img = el('img', 'news-photo');
+        img.src = item.photo;
+        img.alt = item.heading;
+        row.appendChild(img);
+      }
+      const itemBody = el('div', 'news-body');
+      itemBody.appendChild(el('div', 'news-date', item.date));
+      itemBody.appendChild(el('h3', null, item.heading));
+      itemBody.appendChild(el('p', null, item.text));
+      row.appendChild(itemBody);
+      list.appendChild(row);
+    });
+    body.appendChild(list);
+    section.appendChild(body);
     return section;
   }
 
@@ -321,6 +353,10 @@
 
     wrap.appendChild(renderNav(SITE.nav));
     wrap.appendChild(renderHero(SITE.hero));
+
+    const news = renderNews(SITE.news);
+    if (news) wrap.appendChild(news);
+
     wrap.appendChild(renderAbout(SITE.about));
     wrap.appendChild(renderTopics(SITE.topics));
     wrap.appendChild(renderTimeline(SITE.timeline));

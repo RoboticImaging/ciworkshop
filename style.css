@@ -15,6 +15,7 @@
      TOPICS          .topics list
      PEOPLE          .people, .person cards
      TIMELINE        .timeline list
+     NEWS            .news-list, .news-item (photo + text)
      CTA             .cta-grid, .cta cards (Get Involved)
      FOOTER          footer, .foot-grid, .colophon
      MISC            .disclosure, entrance animation
@@ -567,6 +568,65 @@ section {
 @media (max-width: 560px) {
   .speaker-row { gap: 16px; }
   .speaker-photo { width: 64px; height: 64px; }
+}
+
+/* ──────────────────────────────────────────────────────────────
+   NEWS  (photo + text items, newest first)
+────────────────────────────────────────────────────────────── */
+
+.news-list {
+  display: flex;
+  flex-direction: column;
+}
+.news-item {
+  display: grid;
+  grid-template-columns: 380px 1fr;
+  gap: 32px;
+  padding: 32px 0;
+  border-bottom: 1px solid var(--rule);
+  align-items: start;
+}
+.news-item:first-child { padding-top: 0; }
+.news-item:last-child  { border-bottom: none; }
+
+.news-photo {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  border-radius: 2px;
+  border: 1px solid var(--rule);
+  filter: grayscale(10%);
+  display: block;
+}
+
+.news-body { min-width: 0; }
+.news-date {
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 8px;
+}
+.news-body h3 {
+  margin: 0 0 10px 0;
+  font-family: "Source Serif 4", Georgia, serif;
+  font-weight: 400;
+  font-size: 22px;
+  line-height: 1.25;
+  color: var(--text);
+}
+.news-body p {
+  margin: 0;
+  font-size: 15.5px;
+  color: var(--text-soft);
+  line-height: 1.6;
+  max-width: 62ch;
+}
+
+@media (max-width: 640px) {
+  .news-item { grid-template-columns: 1fr; gap: 16px; padding: 24px 0; }
+  .news-photo { aspect-ratio: 16 / 9; }
 }
 
 
