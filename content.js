@@ -86,7 +86,9 @@ const SITE = {
     card: [
       { label: 'Date',  value: '16 February 2027' },
       { label: 'Where', value: 'Greater Sydney, TBC' },
-      { label: 'Format', value: 'Talks, breakouts, posters, council'}
+      { label: 'Format', value: 'Talks, breakouts, posters, council'},
+      { section: true, label: 'RSVP - Expression of Interest' },
+      { label: 'RSVP', value: '<a href="https://forms.gle/innLs3eedNcYeTgx5" target="_blank" rel="noopener">Register interest in the workshop / social</a>'},
     ],
     badge: 'Free to attend',
   },
