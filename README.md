@@ -63,6 +63,23 @@ Cloudflare Pages also gives you a free preview URL on every push.
 2. Set `banner: 'banner.jpg'` (or a full URL). Leave `banner: null` for the current default — just the generative background.
 3. A dark gradient overlay is applied automatically so the title and info card stay readable. To adjust its strength, edit the `rgba(...)` stops in `.hero.has-banner::before` in `style.css`.
 
+## Adding a news item
+
+`SITE.news.items` in `content.js` is a list of news entries, each with a `date`, `heading`, `text`, and an optional `photo`. Newest item should go first.
+
+1. Add your image to the repo — e.g. create a `news/` folder and drop in `social-2026-07-20.jpg`.
+2. Add an entry to the top of `SITE.news.items`:
+   ```js
+   {
+     date:    '20 July 2026',
+     heading: 'Our first community social',
+     text:    'A short write-up of what happened...',
+     photo:   'news/social-2026-07-20.jpg',
+   },
+   ```
+3. Leave `photo: null` if you don't have an image for that item — the row will just show the text.
+4. Commit and push. `layout.js` already handles rendering; the section disappears automatically if `SITE.news.items` is ever emptied out.
+
 ## Adding committee headshots
 
 Each person in `content.js` (`SITE.committee.people`) has a `photo` field.
