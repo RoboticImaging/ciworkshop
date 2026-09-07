@@ -84,6 +84,12 @@
       section.style.backgroundImage = `url('${d.banner}')`;
     }
     section.innerHTML = APERTURE_SVG;
+    if (d.logo) {
+      const logo = el('img', 'hero-logo');
+      logo.src = d.logo;
+      logo.alt = '';
+      section.appendChild(logo);
+    }
     section.appendChild(el('div', 'eyebrow', d.eyebrow));
 
     const grid = el('div', 'hero-grid');

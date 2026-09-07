@@ -108,13 +108,19 @@ a:hover { color: #a8d8ee; border-bottom-color: #a8d8ee; }
   align-items: center;
   justify-content: space-between;
   padding: 26px 0 0 0;
-  font-size: 12px;
+  font-size: 16px;
   font-weight: 500;
   letter-spacing: 0.04em;
   color: var(--text-soft);
 }
 
 .topbar .mark   { color: var(--text); font-weight: 600; }
+.topbar .mark img.nav-logo {
+  height: 64px;
+  width: auto;
+  vertical-align: middle;
+  margin-right: 10px;
+}
 .topbar nav a   { margin-left: 28px; border: none; color: var(--text-soft); font-weight: 400; }
 .topbar nav a:hover { color: var(--accent); }
 
@@ -169,6 +175,15 @@ a:hover { color: #a8d8ee; border-bottom-color: #a8d8ee; }
 
 @media (max-width: 880px) {
   .hero-grid { grid-template-columns: 1fr; gap: 44px; }
+}
+
+.hero-logo {
+  display: block;
+  position: relative;
+  z-index: 1;
+  height: 56px;
+  width: auto;
+  margin-bottom: 24px;
 }
 
 .eyebrow {

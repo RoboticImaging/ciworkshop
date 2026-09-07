@@ -59,7 +59,7 @@ const SITE = {
      Set enabled: false to hide a link without deleting it.
   ───────────────────────────────────────────────────────────── */
   nav: {
-    mark: 'NSW · Computational Imaging Workshop',
+    mark: '<img src="aperture_icon.svg" alt="NSW Computational Imaging Workshop logo" class="nav-logo"> NSW · Computational Imaging Workshop',
     links: [
       { label: 'News',       href: '#news',       enabled: true  },
       { label: 'About',      href: '#about',      enabled: true  },
@@ -74,6 +74,9 @@ const SITE = {
      HERO
   ───────────────────────────────────────────────────────────── */
   hero: {
+    /* Small logo shown above the eyebrow line. Leave  logo: null  to hide. */
+    // logo: 'aperture_icon.svg',
+
     eyebrow: 'Inaugural edition · NSW &amp; ACT',
     title:   'A regional forum for <em>computational imaging</em>.',
     lede:    'A day for the people designing optics, sensors and algorithms to come together in Sydney. Talking inverse problems, Fourier methods, event cameras and more.',
