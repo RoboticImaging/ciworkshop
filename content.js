@@ -47,11 +47,11 @@ const SITE = {
      META
   ───────────────────────────────────────────────────────────── */
   meta: {
-    title:       'NSW Computational Imaging Workshop — 16 February 2027',
-    description: 'The inaugural NSW Computational Imaging Workshop. A regional forum for researchers, engineers and students working at the intersection of optics, sensing and computation. Greater Sydney, 16 February 2027.',
-    ogTitle:     'NSW Computational Imaging Workshop',
-    ogDesc:      'Inaugural regional forum for computational imaging research in NSW & the ACT. Free to attend. 16 February 2027.',
-    url:         'https://ciworkshop.au',
+    title: 'Australian Computational Imaging Workshop — 16 February 2027',
+    description: 'The inaugural Australian Computational Imaging Workshop. A regional forum for researchers, engineers and students working at the intersection of optics, sensing and computation. Greater Sydney, 16 February 2027.',
+    ogTitle: 'Australian Computational Imaging Workshop',
+    ogDesc: 'Inaugural regional forum for computational imaging research in Australia. Free to attend. 16 February 2027.',
+    url: 'https://ciworkshop.au',
   },
 
   /* ─────────────────────────────────────────────────────────────
@@ -59,13 +59,13 @@ const SITE = {
      Set enabled: false to hide a link without deleting it.
   ───────────────────────────────────────────────────────────── */
   nav: {
-    mark: '<img src="aperture_icon.svg" alt="NSW Computational Imaging Workshop logo" class="nav-logo"> NSW · Computational Imaging Workshop',
+    mark: '<img src="aperture_icon.svg" alt="Australian Computational Imaging Workshop logo" class="nav-logo"> Australian Computational Imaging Workshop',
     links: [
-      { label: 'News',       href: '#news',       enabled: true  },
-      { label: 'About',      href: '#about',      enabled: true  },
-      { label: 'Programme',  href: '#programme',  enabled: true  },
-      { label: 'Topics',     href: '#topics',     enabled: true  },
-      { label: 'Committee',  href: '#committee',  enabled: true  },
+      { label: 'News', href: '#news', enabled: true },
+      { label: 'About', href: '#about', enabled: true },
+      { label: 'Programme', href: '#programme', enabled: true },
+      { label: 'Topics', href: '#topics', enabled: true },
+      { label: 'Committee', href: '#committee', enabled: true },
       { label: 'Get involved', href: '#involved', enabled: false },
     ],
   },
@@ -77,9 +77,9 @@ const SITE = {
     /* Small logo shown above the eyebrow line. Leave  logo: null  to hide. */
     // logo: 'aperture_icon.svg',
 
-    eyebrow: 'Inaugural edition · NSW &amp; ACT',
-    title:   'A regional forum for <em>computational imaging</em>.',
-    lede:    'A day for the people designing optics, sensors and algorithms to come together in Sydney. Talking inverse problems, Fourier methods, event cameras and more.',
+    eyebrow: 'Inaugural edition',
+    title: 'An Australian forum for <em>computational imaging</em>.',
+    lede: 'A day for the people designing optics, sensors and algorithms to come together in Sydney. Talking inverse problems, Fourier methods, event cameras and more.',
 
     /* Banner image behind the hero section, with a dark overlay
        applied automatically (see style.css .has-banner). */
@@ -87,11 +87,11 @@ const SITE = {
 
     /* info card (right side) */
     card: [
-      { label: 'Date',  value: '16 February 2027' },
+      { label: 'Date', value: '16 February 2027' },
       { label: 'Where', value: 'Greater Sydney, TBC' },
-      { label: 'Format', value: 'Talks, breakouts, posters, council'},
+      { label: 'Format', value: 'Talks, breakouts, posters, council' },
       { section: true, label: 'RSVP - Expression of Interest' },
-      { label: 'RSVP', value: '<a href="https://forms.gle/innLs3eedNcYeTgx5" target="_blank" rel="noopener">Register interest in the workshop / social</a>'},
+      { label: 'RSVP', value: '<a href="https://forms.gle/innLs3eedNcYeTgx5" target="_blank" rel="noopener">Register interest in the workshop / social</a>' },
     ],
     badge: 'Free to attend',
   },
@@ -103,16 +103,16 @@ const SITE = {
      Newest item should go first in the array.
   ───────────────────────────────────────────────────────────── */
   news: {
-    num:   '01',
+    num: '01',
     label: 'News',
     title: 'From the community.',
 
     items: [
       {
-        date:    '20 July 2026',
+        date: '20 July 2026',
         heading: 'Our first community social',
-        text:    'On 20 July 2026 we held our first NSW Computational Imaging community social, bringing together researchers, students and industry folk from across the country for an evening of conversation ahead of next year\'s workshop.',
-        photo:   'news/social-2026-07-20.jpg',
+        text: 'On 20 July 2026 we held our first Australian Computational Imaging community social, bringing together researchers, students and industry folk from across the country for an evening of conversation ahead of next year\'s workshop.',
+        photo: 'news/social-2026-07-20.jpg',
       },
     ],
   },
@@ -121,7 +121,7 @@ const SITE = {
      SECTION 02 — ABOUT
   ───────────────────────────────────────────────────────────── */
   about: {
-    num:   '02',
+    num: '02',
     label: 'About',
     title: 'Computational imaging deserves <em>a room of its own</em>.',
 
@@ -143,7 +143,7 @@ const SITE = {
      SECTION 02 — TOPICS
   ───────────────────────────────────────────────────────────── */
   topics: {
-    num:   '03',
+    num: '03',
     label: 'Topics',
     title: 'What we\'ll cover.',
 
@@ -154,7 +154,7 @@ const SITE = {
       'Neuromorphic &amp; event-based sensing',
       'Biomedical &amp; astronomical imaging',
       'Translational research &amp; industry impact',
-      'Community input - Tell us what\'s important', 
+      'Community input - Tell us what\'s important',
     ],
   },
 
@@ -163,15 +163,15 @@ const SITE = {
      now: true  →  highlighted row (current period)
   ───────────────────────────────────────────────────────────── */
   timeline: {
-    num:   '04',
+    num: '04',
     label: 'Timeline',
     title: 'Key dates.',
 
     items: [
-      { when: 'Sept–Oct 2026',   what: 'Call for poster abstracts opens', now: false },
-      { when: 'November 2026',   what: 'Speaker programme confirmed and published', now: false },
-      { when: 'January 2027',    what: 'Poster submission deadline', now: false },
-      { when: '16 Feb 2027',     what: '<strong>Event held</strong> — Greater Sydney', now: false },
+      { when: 'Sept–Oct 2026', what: 'Call for poster abstracts opens', now: false },
+      { when: 'November 2026', what: 'Speaker programme confirmed and published', now: false },
+      { when: 'January 2027', what: 'Poster submission deadline', now: false },
+      { when: '16 Feb 2027', what: '<strong>Event held</strong> — Greater Sydney', now: false },
     ],
   },
 
@@ -179,7 +179,7 @@ const SITE = {
      SECTION 04 — PROGRAMME
   ───────────────────────────────────────────────────────────── */
   programme: {
-    num:   '05',
+    num: '05',
     label: 'Programme',
     title: 'A full day, built for <em>depth and exchange</em>.',
 
@@ -187,32 +187,32 @@ const SITE = {
       {
         label: 'Invited talks',
         heading: 'Plenary talks from <em>Australian leaders</em> in the field',
-        text:    'A curated set of invited talks covering the breadth of computational imaging — from optical hardware to reconstruction algorithms to translational impact.',
+        text: 'A curated set of invited talks covering the breadth of computational imaging — from optical hardware to reconstruction algorithms to translational impact.',
       },
       {
         label: 'Breakouts',
         heading: 'Topic-focused <em>technical workshops</em>',
-        text:    'Smaller breakout sessions on diffractive optics, neuromorphic sensing, and imaging system modelling, enabling depth beyond a standard talk.',
+        text: 'Smaller breakout sessions on diffractive optics, neuromorphic sensing, and imaging system modelling, enabling depth beyond a standard talk.',
       },
       {
         label: 'Posters',
         heading: 'Student &amp; early-career <em>poster session</em>',
-        text:    'A dedicated session for student and ECR work. Open call for abstracts will be announced in late 2026.',
+        text: 'A dedicated session for student and ECR work. Open call for abstracts will be announced in late 2026.',
       },
       {
         label: 'Council',
         heading: 'Inaugural Australian Computational Imaging <em>Community Council</em>',
-        text:    'A structured meeting to set community priorities, long-term direction, and pathways to translational impact. The council established here will take responsibility for governance of subsequent editions.',
+        text: 'A structured meeting to set community priorities, long-term direction, and pathways to translational impact. The council established here will take responsibility for governance of subsequent editions.',
       },
       {
         label: 'Panel',
         heading: 'Closing panel: <em>emerging directions</em>',
-        text:    'An open discussion on where the field, and the Australian community, should head next.',
+        text: 'An open discussion on where the field, and the Australian community, should head next.',
       },
       {
         label: 'Social',
         heading: 'Informal evening <em>at a nearby venue</em>',
-        text:    'Continued conversation, less formal. Details closer to the event.',
+        text: 'Continued conversation, less formal. Details closer to the event.',
       },
     ],
   },
@@ -223,7 +223,7 @@ const SITE = {
      SECTION 05 — SPEAKERS
   ───────────────────────────────────────────────────────────── */
   speakers: {
-    num:   '06',
+    num: '06',
     label: 'Speakers',
     title: 'Invitations are <em>in flight</em>.',
 
@@ -260,7 +260,7 @@ const SITE = {
      ieee: 'IEEE SPS Member'  →  badge shown
   ───────────────────────────────────────────────────────────── */
   committee: {
-    num:   '07',
+    num: '07',
     label: 'Committee',
     title: 'The organising team.',
 
@@ -268,35 +268,35 @@ const SITE = {
       {
         name: 'Dr. Donald Dansereau',
         role: 'Univ. of Sydney',
-        bio:  'Computational imaging, robotic imaging and perception.',
+        bio: 'Computational imaging, robotic imaging and perception.',
         ieee: 'IEEE SPS Member',
         photo: 'people/DonaldDansereau.jpg',
       },
       {
         name: 'A/Prof. Benjamin Pope',
         role: 'Macquarie University',
-        bio:  'Astronomical imaging, Fourier optics. Organiser of Bracewell@70.',
+        bio: 'Astronomical imaging, Fourier optics. Organiser of Bracewell@70.',
         ieee: null,
         photo: 'people/BenjaminPope.jpeg',
       },
       {
         name: 'Dr. Jennifer Wakulicz',
         role: 'Univ. of Sydney',
-        bio:  'Perception, probabilistic modelling, information theory.',
+        bio: 'Perception, probabilistic modelling, information theory.',
         ieee: 'IEEE Member',
         photo: 'people/JenniferWakulicz.jpeg',
       },
       {
         name: 'Dr. James Gray',
         role: 'Univ. of Sydney',
-        bio:  'Computational imaging, light field imaging, 3D reconstruction.',
+        bio: 'Computational imaging, light field imaging, 3D reconstruction.',
         ieee: 'IEEE SPS Member',
         photo: 'people/JamesGray.jpeg',
       },
       {
         name: 'Dr. Nimrod Kruger',
         role: 'Western Sydney University',
-        bio:  'Computational imaging, event-based sensing.',
+        bio: 'Computational imaging, event-based sensing.',
         ieee: null,
         photo: 'people/NimrodKruger.jpeg',
       },
@@ -312,25 +312,25 @@ const SITE = {
   ───────────────────────────────────────────────────────────── */
   involved: {
     enabled: false,
-    num:   '08',
+    num: '08',
     label: 'Get involved',
     title: 'Three ways to <em>take part</em>.',
 
     cards: [
       {
         heading: 'Present a poster',
-        text:    'Open to PhD students and early-career researchers across NSW and the ACT. Best contributions awarded. Call for abstracts opens late 2026.',
-        action:  { label: 'Register your interest →', href: 'mailto:posters@ciworkshop.au' },
+        text: 'Open to PhD students and early-career researchers across Australia. Best contributions awarded. Call for abstracts opens late 2026.',
+        action: { label: 'Register your interest →', href: 'mailto:posters@ciworkshop.au' },
       },
       {
         heading: 'Join the Community Council',
-        text:    'Help shape what computational imaging looks like as a community in Australia. The Council convenes at the workshop and continues year-round.',
-        action:  { label: 'Add me to the list →', href: 'mailto:council@ciworkshop.au' },
+        text: 'Help shape what computational imaging looks like as a community in Australia. The Council convenes at the workshop and continues year-round.',
+        action: { label: 'Add me to the list →', href: 'mailto:council@ciworkshop.au' },
       },
       {
         heading: 'Sponsor the event',
-        text:    'External sponsorship enables venue upgrades, expanded participation, recording, and travel support for students. Sponsor briefings on request.',
-        action:  { label: 'Sponsor briefing →', href: 'mailto:sponsors@ciworkshop.au' },
+        text: 'External sponsorship enables venue upgrades, expanded participation, recording, and travel support for students. Sponsor briefings on request.',
+        action: { label: 'Sponsor briefing →', href: 'mailto:sponsors@ciworkshop.au' },
       },
     ],
   },
@@ -343,7 +343,7 @@ const SITE = {
       {
         heading: 'The Workshop',
         lines: [
-          'A regional forum for computational imaging research across New South Wales and the Australian Capital Territory.',
+          'A regional forum for computational imaging research across Australia.',
           '<a href="mailto:hello@ciworkshop.au">hello@ciworkshop.au</a>',
         ],
       },
@@ -366,7 +366,7 @@ const SITE = {
     ],
 
     colophon: {
-      left:  '© 2026 NSW Computational Imaging Workshop · ciworkshop.au',
+      left: '© 2026 Australia Computational Imaging Workshop · ciworkshop.au',
       right: 'Set in Inter &amp; Source Serif',
     },
   },
