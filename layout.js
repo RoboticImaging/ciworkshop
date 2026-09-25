@@ -28,8 +28,8 @@
   /** Create an element, assign classes and innerHTML in one call. */
   function el(tag, cls, html) {
     const e = document.createElement(tag);
-    if (cls)  e.className   = cls;
-    if (html) e.innerHTML   = html;
+    if (cls) e.className = cls;
+    if (html) e.innerHTML = html;
     return e;
   }
 
@@ -69,7 +69,7 @@
     d.links.forEach(link => {
       if (!link.enabled) return;
       const a = el('a');
-      a.href      = link.href;
+      a.href = link.href;
       a.innerHTML = link.label;
       nav.appendChild(a);
     });
@@ -96,8 +96,12 @@
 
     /* left column */
     const left = el('div');
-    left.appendChild(el('h1', 'title', d.title));
-    left.appendChild(el('p', 'lede', d.lede));
+    const h1 = el('h1', 'title');
+    h1.innerHTML = d.title;
+    left.appendChild(h1);
+    const lede = el('p', 'lede');
+    lede.innerHTML = d.lede;
+    left.appendChild(lede);
     grid.appendChild(left);
 
     /* right — info card */
@@ -110,11 +114,22 @@
         dl = el('dl');
       } else {
         dl.appendChild(el('dt', null, row.label));
-        dl.appendChild(el('dd', null, row.value));
+        const dd = el('dd');
+        dd.innerHTML = row.value;
+        dl.appendChild(dd);
       }
     });
     if (dl.children.length) aside.appendChild(dl);
-    aside.appendChild(el('span', 'free-badge', d.badge));
+
+    if (d.badge) {
+      const badge = el('a', 'free-badge');
+      badge.href = d.badge.href;
+      badge.target = '_blank';
+      badge.rel = 'noopener';
+      badge.textContent = d.badge.label;
+      aside.appendChild(badge);
+    }
+
     grid.appendChild(aside);
 
     section.appendChild(grid);
@@ -157,7 +172,7 @@
     section.id = 'about';
     section.appendChild(sectionHead(d.num, d.label, d.title));
 
-    const body  = el('div', 'section-body');
+    const body = el('div', 'section-body');
     body.appendChild(el('div'));          /* empty left column */
     const prose = el('div', 'prose');
     d.paragraphs.forEach(p => {
@@ -169,7 +184,7 @@
   }
 
   function renderTopics(d) {
-    const NUMERALS = ['i.','ii.','iii.','iv.','v.','vi.','vii.','viii.','ix.','x.'];
+    const NUMERALS = ['i.', 'ii.', 'iii.', 'iv.', 'v.', 'vi.', 'vii.', 'viii.', 'ix.', 'x.'];
     const section = el('section', null);
     section.id = 'topics';
     section.appendChild(sectionHead(d.num, d.label, d.title));
@@ -177,7 +192,7 @@
     const ul = el('ul', 'topics');
     d.items.forEach((name, i) => {
       const li = el('li');
-      li.appendChild(el('span', 'topic-num', NUMERALS[i] || `${i+1}.`));
+      li.appendChild(el('span', 'topic-num', NUMERALS[i] || `${i + 1}.`));
       li.appendChild(el('span', 'topic-name', name));
       ul.appendChild(li);
     });
@@ -231,7 +246,7 @@
        rows line up with the prose's left margin, not the section edge. */
     if (d.people && d.people.length) {
       if (d.text) {
-        const introBody  = el('div', 'section-body');
+        const introBody = el('div', 'section-body');
         introBody.appendChild(el('div'));
         const prose = el('div', 'prose');
         prose.appendChild(el('p', null, d.text));
@@ -253,7 +268,7 @@
         const speakerBody = el('div', 'speaker-body');
         speakerBody.appendChild(el('div', 'name', p.name));
         speakerBody.appendChild(el('div', 'role', p.role));
-        speakerBody.appendChild(el('div', 'bio',  p.bio));
+        speakerBody.appendChild(el('div', 'bio', p.bio));
         if (p.ieee) speakerBody.appendChild(el('span', 'ieee', p.ieee));
         row.appendChild(speakerBody);
         list.appendChild(row);
@@ -264,7 +279,7 @@
     }
 
     /* Placeholder state: no confirmed speakers yet. */
-    const body  = el('div', 'section-body');
+    const body = el('div', 'section-body');
     body.appendChild(el('div'));
     const prose = el('div', 'prose');
     prose.appendChild(el('p', null, d.text));
@@ -295,7 +310,7 @@
       }
       card.appendChild(el('div', 'name', p.name));
       card.appendChild(el('div', 'role', p.role));
-      card.appendChild(el('div', 'bio',  p.bio));
+      card.appendChild(el('div', 'bio', p.bio));
       if (p.ieee) card.appendChild(el('span', 'ieee', p.ieee));
       grid.appendChild(card);
     });
@@ -326,8 +341,8 @@
 
   function renderFooter(d) {
     const footer = el('footer');
-    const wrap   = el('div', 'wrap');
-    const grid   = el('div', 'foot-grid');
+    const wrap = el('div', 'wrap');
+    const grid = el('div', 'foot-grid');
 
     d.columns.forEach(col => {
       const div = el('div');
@@ -354,7 +369,7 @@
   /* ── assemble page ───────────────────────────────────────── */
 
   function build() {
-    const app  = document.getElementById('app');
+    const app = document.getElementById('app');
     const wrap = el('div', 'wrap');
 
     wrap.appendChild(renderNav(SITE.nav));
