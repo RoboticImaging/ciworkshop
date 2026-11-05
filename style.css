@@ -271,6 +271,16 @@ h1.title em { font-style: italic; color: var(--accent); font-weight: 400; }
 }
 
 /* coded-aperture motif */
+.hero-submit { margin: 16px 0 0; font-size: 14px; }
+.programme-item p.programme-action { margin-top: 14px; }
+
+@media (min-width: 721px) {
+  .topbar { flex-wrap: wrap; gap: 16px 24px; }
+  .topbar nav { display: flex; flex-wrap: wrap; gap: 12px 24px; }
+  .topbar nav a { margin-left: 0; }
+}
+
+/* coded-aperture motif */
 .aperture {
   position: absolute;
   right: -70px;

@@ -130,6 +130,14 @@
       aside.appendChild(badge);
     }
 
+    if (d.submit) {
+      const action = el('p', 'hero-submit');
+      const a = el('a', null, d.submit.label);
+      a.href = d.submit.href;
+      action.appendChild(a);
+      aside.appendChild(action);
+    }
+
     grid.appendChild(aside);
 
     section.appendChild(grid);
@@ -228,6 +236,13 @@
       const body = el('div');
       body.appendChild(el('h3', null, item.heading));
       body.appendChild(el('p', null, item.text));
+      if (item.action) {
+        const action = el('p', 'programme-action');
+        const a = el('a', null, item.action.label);
+        a.href = item.action.href;
+        action.appendChild(a);
+        body.appendChild(action);
+      }
       row.appendChild(body);
       list.appendChild(row);
     });
@@ -374,6 +389,18 @@
 
     wrap.appendChild(renderNav(SITE.nav));
     wrap.appendChild(renderHero(SITE.hero));
+
+    // The calls page shares the workshop header, hero, sections and footer.
+    if (SITE.calls) {
+      SITE.calls.sections.forEach(d => {
+        const section = renderAbout(d);
+        section.id = d.id;
+        wrap.appendChild(section);
+      });
+      app.appendChild(wrap);
+      app.appendChild(renderFooter(SITE.footer));
+      return;
+    }
 
     const news = renderNews(SITE.news);
     if (news) wrap.appendChild(news);
