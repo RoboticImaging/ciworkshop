@@ -321,8 +321,8 @@ const SITE = {
       {
         name: 'Sonain Jamil',
         role: 'University of Technology Sydney',
-        bio: 'Image quality assessment, image compression and computer vision.',
-        ieee: null,
+        bio: 'Image quality assessment, interactive 3D reconstruction, and computer vision.',
+        ieee: 'IEEE Graduate Student Member',
         photo: null,
       },
     ],
