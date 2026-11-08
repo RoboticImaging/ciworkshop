@@ -226,12 +226,74 @@ const SITE = {
   /* ─────────────────────────────────────────────────────────────
      SECTION 05 — SPEAKERS
   ───────────────────────────────────────────────────────────── */
-  speakers: {
-    num: '06',
-    label: 'Speakers',
-    title: 'Invitations are <em>in flight</em>.',
+   
+/* ─────────────────────────────────────────────────────────────
+   SECTION 05 — SPEAKERS
+───────────────────────────────────────────────────────────── */
+speakers: {
+  num: '06',
+  label: 'Speakers',
+  title: 'Meet our <em>invited speakers</em>.',
 
-    text: 'Speaker invitations are being extended to prominent Australian-based figures in computational imaging. Confirmed names will be listed here as responses come in. We expect to publish the full speaker programme in November 2026.',
+  text: 'We are pleased to announce our confirmed invited speakers for the Australian Computational Imaging Workshop 2027. Our speakers bring expertise across computational imaging, artificial intelligence, photonics, medical imaging, and signal processing. Additional speakers will be announced as confirmations are received.',
+
+  people: [
+    {
+      name: 'Prof. Tat-Jun Chin',
+      role: 'Professor of Computer Science, Adelaide University',
+      bio: 'Professor Tat-Jun Chin leads the AI for Space research group at Adelaide University. His research focuses on optimisation for computer vision and machine learning, with applications in intelligent satellites and space robotics. He has published more than 150 research articles and received several international research awards, including recognition at CVPR, BMVC and ECCV.',
+      ieee: null,
+      photo: 'speakers/TJ_Chin.jpeg',
+    },
+
+    {
+      name: 'Dr Eamonn Colley',
+      role: 'Co-founder and Co-CEO, Vexev',
+      bio: 'Dr Eamonn Colley is a co-founder of Vexev, an Australian medical technology company developing advanced vascular imaging systems. His work focuses on combining robotics, artificial intelligence and ultrasound to make vascular imaging more accessible and consistent. Vexev is developing autonomous ultrasound technology for clinical applications, including vascular assessment and monitoring.',
+      ieee: null,
+      photo: 'speakers/Eamonn_Colley.jpg',
+    },
+
+    {
+      name: 'Prof. Paul Hurley',
+      role: 'Professor of Data Science, Western Sydney University',
+      bio: 'Professor Paul Hurley is a Professor of Data Science at Western Sydney University and is affiliated with the International Centre for Neuromorphic Systems. His research interests include mathematical signal processing, information theory, algorithms and data science, with applications in medical imaging and radio astronomy interferometry.',
+      ieee: 'IEEE Senior Member · IEEE SPS',
+      photo: 'speakers/Paul_Hurley.jpg',
+    },
+
+    {
+      name: 'A/Prof. Arti Agrawal',
+      role: 'Adjunct Associate Professor, University of Technology Sydney',
+      bio: 'Associate Professor Arti Agrawal specialises in computational photonics and numerical modelling of optical devices. Her research includes optical fibres, photonic sensors, solar cells and plasmonic devices, with particular expertise in finite element modelling. She has authored and edited books on computational photonics and has contributed to professional activities within IEEE and Optica.',
+      ieee: 'IEEE Senior Member · IEEE SPS',
+      photo: 'speakers/Arti_Agrawal.jpg',
+    },
+
+    {
+      name: 'Prof. Ann Roberts',
+      role: 'Professor of Physics, University of Melbourne',
+      bio: 'Professor Ann Roberts is a Professor in the School of Physics at the University of Melbourne and a Chief Investigator in the ARC Centre of Excellence for Transformative Meta-Optical Systems. Her research spans meta-optics, nanophotonics and optical imaging, including the development of metasurfaces and nanoscale optical structures for advanced imaging and sensing. She is a Fellow of Optica and SPIE.',
+      ieee: null,
+      photo: 'speakers/Ann_Roberts.jpg',
+    },
+
+    {
+      name: 'Dr Steve Lee',
+      role: 'Group Leader, Australian National University',
+      bio: 'Dr Steve Lee leads the Optical Biofluidic Group at the John Curtin School of Medical Research, Australian National University. His research combines optical imaging, biophysics and microfluidic technologies to investigate the behaviour of cells and biological systems. His work focuses on developing advanced optical techniques to study cellular responses and support biomedical research.',
+      ieee: null,
+      photo: 'speakers/Steve_Lee.jpg',
+    },
+  ],
+},
+
+  //speakers: {
+  //  num: '06',
+  //  label: 'Speakers',
+  //  title: 'Invitations are <em>in flight</em>.',
+
+  //  text: 'Speaker invitations are being extended to prominent Australian-based figures in computational imaging. Confirmed names will be listed here as responses come in. We expect to publish the full speaker programme in November 2026.',
     //
     // disclosure: {
     //   heading: 'Under invitation or expressed initial interest:',
