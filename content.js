@@ -312,7 +312,7 @@ speakers: {
         photo: 'speakers/TJ_Chin.jpeg',
       }, 
     ],*/
-  },
+  //},
   /* ─────────────────────────────────────────────────────────────
      SECTION 06 — COMMITTEE
      ieee: null   →  no badge shown
