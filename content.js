@@ -47,10 +47,10 @@ const SITE = {
      META
   ───────────────────────────────────────────────────────────── */
   meta: {
-    title: 'Australian Computational Imaging Workshop — 16 February 2027',
-    description: 'The inaugural Australian Computational Imaging Workshop. A regional forum for researchers, engineers and students working at the intersection of optics, sensing and computation. Greater Sydney, 16 February 2027.',
+    title: 'Australian Computational Imaging Workshop — 15-16 February 2027',
+    description: 'The inaugural 2-day Australian Computational Imaging Workshop. A regional forum for researchers, engineers and students working at the intersection of optics, sensing and computation. Greater Sydney, 15-16 February 2027.',
     ogTitle: 'Australian Computational Imaging Workshop',
-    ogDesc: 'Inaugural regional forum for computational imaging research in Australia. Free to attend. 16 February 2027.',
+    ogDesc: 'Inaugural regional forum for computational imaging research in Australia. Free to attend. 15-16 February 2027.',
     url: 'https://ciworkshop.au',
   },
 
@@ -66,6 +66,7 @@ const SITE = {
       { label: 'Programme', href: '#programme', enabled: true },
       { label: 'Topics', href: '#topics', enabled: true },
       { label: 'Committee', href: '#committee', enabled: true },
+      { label: 'Submit', href: 'calls.html', enabled: true },
       { label: 'Get involved', href: '#involved', enabled: false },
     ],
   },
@@ -79,7 +80,7 @@ const SITE = {
 
     eyebrow: 'Inaugural edition',
     title: 'An Australian forum for <em>computational imaging</em>.',
-    lede: 'A day for the people designing optics, sensors and algorithms to come together in Sydney. Talking inverse problems, Fourier methods, event cameras and more.',
+    lede: 'A two-day event for the people designing optics, sensors and algorithms to come together in Sydney. Talking inverse problems, Fourier methods, novel sensor... and their applications.',
 
     /* Banner image behind the hero section, with a dark overlay
        applied automatically (see style.css .has-banner). */
@@ -87,15 +88,16 @@ const SITE = {
 
     /* info card (right side) */
     card: [
-      { label: 'Date', value: '16 February 2027' },
+      { label: 'Date', value: '15-16 February 2027' },
       { label: 'Where', value: 'Greater Sydney, TBC' },
-      { label: 'Format', value: 'Talks, breakouts, posters, council' },
+      { label: 'Format', value: 'Talks, posters, breakout-workshops, networking, and community council' },
       { label: 'Price', value: 'Free to attend' }
     ],
     badge: {
       label: 'Sign up for our mailing list',
       href: 'https://ciworkshop.eo.page/',
     },
+    submit: { label: 'Submit a poster or workshop →', href: 'calls.html' },
   },  /* ─────────────────────────────────────────────────────────────
      SECTION 01 — NEWS
      Each item: date / heading / text / photo.
@@ -168,10 +170,10 @@ const SITE = {
     title: 'Key dates.',
 
     items: [
-      { when: 'Sept–Oct 2026', what: 'Call for poster abstracts opens', now: false },
-      { when: 'November 2026', what: 'Speaker programme confirmed and published', now: false },
-      { when: 'January 2027', what: 'Poster submission deadline', now: false },
-      { when: '16 Feb 2027', what: '<strong>Event held</strong> — Greater Sydney', now: false },
+      { when: 'November 2026', what: 'Call for poster abstracts opens', now: false },
+      { when: 'December 2026', what: 'Speaker programme confirmed and published', now: false },
+      { when: '[date] January 2027', what: 'Poster submission deadline', now: false },
+      { when: '15-16 Feb 2027', what: '<strong>Event held</strong> — Greater Sydney', now: false },
     ],
   },
 
@@ -181,7 +183,7 @@ const SITE = {
   programme: {
     num: '05',
     label: 'Programme',
-    title: 'A full day, built for <em>depth and exchange</em>.',
+    title: 'A two-day event, built for <em>depth and exchange</em>.',
 
     items: [
       {
@@ -190,24 +192,26 @@ const SITE = {
         text: 'A curated set of invited talks covering the breadth of computational imaging — from optical hardware to reconstruction algorithms to translational impact.',
       },
       {
-        label: 'Breakouts',
+        label: 'Breakout-workshops',
         heading: 'Topic-focused <em>technical workshops</em>',
-        text: 'Smaller breakout sessions on diffractive optics, neuromorphic sensing, and imaging system modelling, enabling depth beyond a standard talk.',
+        action: { label: 'Submit a workshop proposal →', href: 'calls.html#workshops' },
+        text: 'Smaller breakout sessions on diffractive optics, neuromorphic sensing, imaging system modelling - we don\'t know yet what, as this will be community-driven. Suggest topics and lead the community discussion.',
       },
       {
         label: 'Posters',
         heading: 'Student &amp; early-career <em>poster session</em>',
-        text: 'A dedicated session for student and ECR work. Open call for abstracts will be announced in late 2026.',
+        action: { label: 'Submit a poster abstract →', href: 'calls.html#posters' },
+        text: 'Several dedicated poster sessions will be held throughout the event - and only several posters will be presented at a time. Your research will get maximal attention, and you will have the opportunity to engage with others.',
+      },
+      {
+        label: 'Panel discussion',
+        heading: 'Closing panel: <em>emerging directions</em>',
+        text: 'An open discussion on where the field, and the Australian community, should head next.',
       },
       {
         label: 'Council',
         heading: 'Inaugural Australian Computational Imaging <em>Community Council</em>',
         text: 'A structured meeting to set community priorities, long-term direction, and pathways to translational impact. The council established here will take responsibility for governance of subsequent editions.',
-      },
-      {
-        label: 'Panel',
-        heading: 'Closing panel: <em>emerging directions</em>',
-        text: 'An open discussion on where the field, and the Australian community, should head next.',
       },
       {
         label: 'Social',
@@ -299,6 +303,27 @@ const SITE = {
         bio: 'Computational imaging, event-based sensing.',
         ieee: null,
         photo: 'people/NimrodKruger.jpeg',
+      },
+      {
+        name: 'Cameron Jones',
+        role: 'Australian National University',
+        bio: 'Free-space optical communications, ground-based instrumentation and atmospheric turbulence.',
+        ieee: null,
+        photo: null,
+      },
+      {
+        name: 'Dr. Sofia Ana McLeod',
+        role: 'Adelaide University',
+        bio: 'Vision-based spacecraft navigation, crater-based pose estimation and event-based sensing.',
+        ieee: null,
+        photo: null,
+      },
+      {
+        name: 'Sonain Jamil',
+        role: 'University of Technology Sydney',
+        bio: 'Image quality assessment, interactive 3D reconstruction, and computer vision.',
+        ieee: 'IEEE Graduate Student Member',
+        photo: 'people/SonainJamil.jpg',
       },
     ],
   },
