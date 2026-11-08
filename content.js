@@ -323,7 +323,7 @@ const SITE = {
         role: 'University of Technology Sydney',
         bio: 'Image quality assessment, interactive 3D reconstruction, and computer vision.',
         ieee: 'IEEE Graduate Student Member',
-        photo: 'people/SonainJamil.jpg',
+        photo: 'people/SJamil.jpg',
       },
     ],
   },
