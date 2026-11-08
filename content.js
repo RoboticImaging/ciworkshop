@@ -223,15 +223,71 @@ const SITE = {
 
 
 
+/* ─────────────────────────────────────────────────────────────
+   SECTION 05 — SPEAKERS
+───────────────────────────────────────────────────────────── */
+speakers: {
+  num: '06',
+  label: 'Speakers',
+  title: 'Meet our <em>invited speakers</em>.',
+
+  text: 'We are pleased to announce our confirmed invited speakers for the Australian Computational Imaging Workshop 2027. Additional speakers will be announced as confirmations are received.',
+
+  people: [
+    {
+      name: 'Prof. Tat-Jun Chin',
+      role: 'Professorial Chair of Sentient Satellites, Adelaide University',
+      bio: 'Prof. Tat-Jun Chin researches computer vision, machine learning and optimisation, with applications in intelligent satellites and space robotics. His work has received several international awards, including recognition at CVPR, BMVC and ECCV.',
+      ieee: null,
+      photo: 'speakers/TJ_Chin.jpeg',
+    },
+    {
+      name: 'Dr Eamonn Colley',
+      role: 'Co-founder and Co-CEO, Vexev',
+      bio: 'Dr Eamonn Colley is a co-founder of Vexev, an Australian medical technology company developing robotic ultrasound imaging systems. His work combines artificial intelligence, robotics and medical imaging for vascular assessment and monitoring.',
+      ieee: null,
+      photo: 'speakers/Eamonn_Colley.jpg',
+    },
+    {
+      name: 'Prof. Paul Hurley',
+      role: 'Professor, Western Sydney University',
+      bio: 'Prof. Paul Hurley works in mathematical signal processing, information theory and data science. His research includes applications in computational imaging and neuromorphic systems.',
+      ieee: 'IEEE Senior Member',
+      photo: 'speakers/Paul_Hurley.jpg',
+    },
+    {
+      name: 'A/Prof. Arti Agrawal',
+      role: 'Adjunct Associate Professor, University of Technology Sydney',
+      bio: 'A/Prof. Arti Agrawal specialises in computational photonics and numerical modelling of optical devices. Her research includes optical fibres, photonic sensors and advanced computational techniques for photonic systems.',
+      ieee: 'IEEE Senior Member',
+      photo: 'speakers/Arti_Agrawal.jpg',
+    },
+    {
+      name: 'Prof. Ann Roberts',
+      role: 'Professor of Physics, University of Melbourne',
+      bio: 'Prof. Ann Roberts conducts research in meta-optics, nanophotonics and advanced optical imaging. Her work explores optical metasurfaces and nanoscale structures for imaging, sensing and light manipulation.',
+      ieee: null,
+      photo: 'speakers/Ann_Roberts.jpg',
+    },
+    {
+      name: 'Dr Steve Lee',
+      role: 'Group Leader, Australian National University',
+      bio: 'Dr Steve Lee leads research in optical imaging, biophysics and microfluidic technologies. His work focuses on developing imaging and measurement techniques to investigate cells and biological systems.',
+      ieee: null,
+      photo: 'speakers/Steve_Lee.jpg',
+    },
+  ],
+},
+
   /* ─────────────────────────────────────────────────────────────
      SECTION 05 — SPEAKERS
   ───────────────────────────────────────────────────────────── */
-  speakers: {
-    num: '06',
-    label: 'Speakers',
-    title: 'Invitations are <em>in flight</em>.',
+  //speakers: {
+  //  num: '06',
+  //  label: 'Speakers',
+  //  title: 'Invitations are <em>in flight</em>.',
 
-    text: 'Speaker invitations are being extended to prominent Australian-based figures in computational imaging. Confirmed names will be listed here as responses come in. We expect to publish the full speaker programme in November 2026.',
+  //  text: 'Speaker invitations are being extended to prominent Australian-based figures in computational imaging. Confirmed names will be listed here as responses come in. We expect to publish the full speaker programme in November 2026.',
     //
     // disclosure: {
     //   heading: 'Under invitation or expressed initial interest:',
