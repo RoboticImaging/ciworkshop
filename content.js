@@ -246,7 +246,7 @@ speakers: {
       role: 'Co-founder and Co-CEO, Vexev',
       bio: 'Dr Eamonn Colley is a co-founder of Vexev, an Australian medical technology company developing robotic ultrasound imaging systems. His work combines artificial intelligence, robotics and medical imaging for vascular assessment and monitoring.',
       ieee: null,
-      photo: 'speakers/Eamonn_Colley.jpg',
+      photo: 'speakers/Eamonn_Colley.jpeg',
     },
     {
       name: 'Prof. Paul Hurley',
@@ -256,18 +256,18 @@ speakers: {
       photo: 'speakers/Paul_Hurley.jpg',
     },
     {
-      name: 'A/Prof. Arti Agrawal',
-      role: 'Adjunct Associate Professor, University of Technology Sydney',
-      bio: 'A/Prof. Arti Agrawal specialises in computational photonics and numerical modelling of optical devices. Her research includes optical fibres, photonic sensors and advanced computational techniques for photonic systems.',
-      ieee: 'IEEE Senior Member',
-      photo: 'speakers/Arti_Agrawal.jpg',
+       name: 'A/Prof. Arti Agrawal',
+       role: 'Adjunct Associate Professor, University of Technology Sydney | Founder and CEO, Vividhata Pty Ltd',
+       bio: 'A/Prof. Arti Agrawal specialises in computational photonics and numerical modelling of optical devices, including optical fibres, photonic sensors and solar cells. She is also the Founder and CEO of Vividhata Pty Ltd, a diversity and inclusion consultancy focused on creating more inclusive workplaces through research, training and organisational development.',
+       ieee: 'IEEE Senior Member',
+       photo: 'speakers/Arti_Agrawal.jpg',
     },
     {
       name: 'Prof. Ann Roberts',
       role: 'Professor of Physics, University of Melbourne',
       bio: 'Prof. Ann Roberts conducts research in meta-optics, nanophotonics and advanced optical imaging. Her work explores optical metasurfaces and nanoscale structures for imaging, sensing and light manipulation.',
       ieee: null,
-      photo: 'speakers/Ann_Roberts.jpg',
+      photo: 'speakers/Ann_Roberts.jpeg',
     },
     {
       name: 'Dr Steve Lee',
