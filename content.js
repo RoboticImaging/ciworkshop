@@ -364,7 +364,7 @@ speakers: {
         role: 'Australian National University',
         bio: 'Free-space optical communications, ground-based instrumentation and atmospheric turbulence.',
         ieee: null,
-        photo: 'people/NimrodKruger.jpeg',
+        photo: 'people/cjones.jpg',
       },
       {
         name: 'Dr. Sofia Ana McLeod',
