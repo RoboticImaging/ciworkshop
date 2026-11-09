@@ -367,11 +367,18 @@ speakers: {
         photo: 'people/cjones.jpg',
       },
       {
+        name: 'Jack Naylor',
+        role: 'Univ. of Sydney',
+        bio: 'Computational imaging, robotic imaging, scene representation and adaptive sensing',
+        ieee: "IEEE Member",
+        photo: 'people/JackNaylor.png',
+      },
+      {
         name: 'Dr. Sofia Ana McLeod',
         role: 'Adelaide University',
         bio: 'Vision-based spacecraft navigation, crater-based pose estimation and event-based sensing.',
         ieee: null,
-        photo: null,
+        photo: 'people/SofiaMcLeod.jpeg',
       },
       {
         name: 'Sonain Jamil',
