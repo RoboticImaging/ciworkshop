@@ -258,7 +258,7 @@ speakers: {
     {
        name: 'A/Prof. Arti Agrawal',
        role: 'Adjunct Associate Professor, University of Technology Sydney | Founder and CEO, Vividhata Pty Ltd',
-       bio: 'A/Prof. Arti Agrawal specialises in computational photonics and numerical modelling of optical devices, including optical fibres, photonic sensors and solar cells. She is also the Founder and CEO of Vividhata Pty Ltd, a diversity and inclusion consultancy focused on creating more inclusive workplaces through research, training and organisational development.',
+       bio: 'A/Prof. Arti Agrawal works on virtual reality (VR) applications for immersive learning, interactive training and skill development. As Founder and CEO of Vividhata Pty Ltd, she explores the use of VR technologies to support inclusive learning experiences, communication and practical skills training. Her academic research also includes computational photonics and numerical modelling of optical devices.',
        ieee: 'IEEE Senior Member',
        photo: 'speakers/Arti_Agrawal.jpg',
     },
