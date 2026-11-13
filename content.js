@@ -384,7 +384,7 @@ speakers: {
         name: 'Sonain Jamil',
         role: 'University of Technology Sydney',
         bio: 'Image quality assessment, interactive 3D reconstruction, and computer vision.',
-        ieee: 'IEEE Graduate Student Member',
+        ieee: 'IEEE SPS Member',
         photo: 'people/SJamil.jpg',
       },
     ],
