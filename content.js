@@ -66,7 +66,7 @@ const SITE = {
       { label: 'Programme', href: '#programme', enabled: true },
       { label: 'Topics', href: '#topics', enabled: true },
       { label: 'Committee', href: '#committee', enabled: true },
-      { label: 'Submit', href: 'calls.html', enabled: true },
+      // { label: 'Submit', href: 'calls.html', enabled: true },
       { label: 'Get involved', href: '#involved', enabled: false },
     ],
   },
@@ -97,7 +97,7 @@ const SITE = {
       label: 'Sign up for our mailing list',
       href: 'https://ciworkshop.eo.page/',
     },
-    submit: { label: 'Submit a poster or workshop →', href: 'calls.html' },
+    // submit: { label: 'Submit a poster or workshop →', href: 'calls.html' },
   },  /* ─────────────────────────────────────────────────────────────
      SECTION 01 — NEWS
      Each item: date / heading / text / photo.
@@ -194,13 +194,13 @@ const SITE = {
       {
         label: 'Breakout-workshops',
         heading: 'Topic-focused <em>technical workshops</em>',
-        action: { label: 'Submit a workshop proposal →', href: 'calls.html#workshops' },
+        // action: { label: 'Submit a workshop proposal →', href: 'calls.html#workshops' },
         text: 'Smaller breakout sessions on diffractive optics, neuromorphic sensing, imaging system modelling - we don\'t know yet what, as this will be community-driven. Suggest topics and lead the community discussion.',
       },
       {
         label: 'Posters',
         heading: 'Student &amp; early-career <em>poster session</em>',
-        action: { label: 'Submit a poster abstract →', href: 'calls.html#posters' },
+        // action: { label: 'Submit a poster abstract →', href: 'calls.html#posters' },
         text: 'Several dedicated poster sessions will be held throughout the event - and only several posters will be presented at a time. Your research will get maximal attention, and you will have the opportunity to engage with others.',
       },
       {
