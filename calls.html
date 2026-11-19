@@ -3,41 +3,32 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Call for Posters and focused-workshop or breakout session proposals for the 1st Australian Computational Imaging Workshop, 15–16 February 2027.">
-  <title>Submissions — Australian Computational Imaging Workshop 2027</title>
+  <meta name="description" content="Call for Submissions: Australian Computational Imaging Workshop, 15–16 February 2027.">
+  <title>Call for Submissions — Australian Computational Imaging Workshop</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,300..700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
-  <!-- Scoped styles for this page. No changes to style.css or layout.js needed. -->
   <style>
-    .calls-hero { padding: 84px 0 80px; }
-    .calls-hero h1.title { max-width: 15ch; }
-    .calls-hero .lede { max-width: 64ch; }
-    .calls-links { display: flex; gap: 22px; flex-wrap: wrap; margin-top: 32px; }
+    /* Page-specific layout only. The main site stylesheet remains unchanged. */
+    .calls-hero { padding: 80px 0 72px; }
+    .calls-hero h1.title { max-width: 18ch; font-size: clamp(38px, 5vw, 68px); line-height: 1.08; }
+    .calls-links { display: flex; flex-wrap: wrap; gap: 24px; margin-top: 34px; }
     .calls-links a { font-size: 13px; letter-spacing: .03em; }
     .calls-prose { max-width: 780px; }
     .calls-prose p, .calls-prose li { color: var(--text-soft); font-size: 15.5px; line-height: 1.75; }
-    .calls-prose p { margin: 0 0 18px; }
+    .calls-prose p { margin: 0 0 19px; }
     .calls-prose p.lead { color: var(--text); font-family: "Source Serif 4", Georgia, serif; font-size: 20px; line-height: 1.55; }
-    .calls-prose h3 { color: var(--text); font-family: "Source Serif 4", Georgia, serif; font-size: 26px; font-weight: 400; line-height: 1.2; margin: 35px 0 12px; }
-    .calls-prose ul { margin: 8px 0 22px; padding-left: 22px; }
-    .calls-prose li { margin-bottom: 8px; }
+    .calls-prose h3 { color: var(--text); font-family: "Source Serif 4", Georgia, serif; font-size: 26px; font-weight: 400; line-height: 1.2; margin: 36px 0 14px; }
+    .calls-prose ul { margin: 8px 0 24px; padding-left: 22px; }
+    .calls-prose li { margin-bottom: 7px; }
     .calls-prose strong { color: var(--text); font-weight: 600; }
-    .calls-prose .call-status { background: var(--bg-soft); border: 1px solid var(--rule); padding: 22px 26px; margin: 26px 0; }
-    .call-status dl { display: grid; grid-template-columns: 170px 1fr; gap: 14px 22px; margin: 0; }
-    .call-status dt { font-size: 11px; text-transform: uppercase; letter-spacing: .1em; color: var(--muted); font-weight: 600; }
-    .call-status dd { margin: 0; font-size: 14.5px; color: var(--text); }
-    .call-note { font-size: 13px !important; color: var(--muted) !important; }
     .topbar .mark a { color: inherit; border: none; }
     .topbar .mark a:hover { color: var(--accent); }
     #posters, #workshops { scroll-margin-top: 20px; }
     @media (max-width: 700px) {
-      .calls-hero { padding: 62px 0 54px; }
+      .calls-hero { padding: 60px 0 52px; }
       .calls-prose h3 { font-size: 23px; }
-      .call-status dl { grid-template-columns: 1fr; gap: 4px; }
-      .call-status dd { margin-bottom: 12px; }
-      .call-status dd:last-child { margin-bottom: 0; }
       .topbar .mark { font-size: 13px; }
       .topbar .mark img.nav-logo { height: 44px; }
     }
@@ -55,111 +46,84 @@
       <nav aria-label="Submissions navigation">
         <a href="index.html">Home</a>
         <a href="#posters">Posters</a>
-        <a href="#workshops">Breakout sessions</a>
+        <a href="#workshops">Breakout Sessions</a>
       </nav>
     </header>
 
     <section class="calls-hero">
-      <div class="eyebrow">15–16 February 2027 · Greater Sydney</div>
-      <h1 class="title">Share your <em>research</em>.</h1>
-      <p class="lede">Calls for contributions to the 1st Australian Computational Imaging Workshop. Join researchers and practitioners across optics, sensing, imaging and computation.</p>
+      <h1 class="title">Call for Submissions: <br/>Australian Computational Imaging Workshop</h1>
       <div class="calls-links">
-        <a href="#posters">Call for Posters ↓</a>
-        <a href="#workshops">Focused workshops &amp; breakout sessions ↓</a>
+        <a href="#posters">Posters ↓</a>
+        <a href="#workshops">Breakout Sessions ↓</a>
         <a href="index.html">← Return to the main website</a>
       </div>
     </section>
 
     <section id="posters" aria-labelledby="posters-title">
       <div class="section-head">
-        <div class="section-label"><span class="num">01</span> Submissions</div>
-        <h2 class="section-title" id="posters-title">Call for <em>Posters</em>.</h2>
+        <div class="section-label"><span class="num">01</span></div>
+        <h2 class="section-title" id="posters-title">Posters</h2>
       </div>
       <div class="section-body">
         <div aria-hidden="true"></div>
         <div class="calls-prose">
-          <p class="lead">The first Australian Computational Imaging Workshop brings together researchers working across robotics, astronomy, medical imaging, signal processing, sensing and related disciplines.</p>
-          <p>We invite researchers and practitioners to share their work in the workshop poster sessions, fostering new connections and collaborations across the imaging community. Recently published and yet-to-be-published work is welcome. Poster presentations are <strong>non-archival</strong>.</p>
-          <p>Accepted extended abstracts will be made available to workshop attendees before the workshop begins, but will not form archival proceedings.</p>
-
-          <h3>Topics of interest</h3>
-          <p>We welcome contributions on computational imaging methods, technologies, hardware and applications, including but not limited to:</p>
-          <ul>
-            <li>Robotics</li>
-            <li>Astronomy and space technologies</li>
-            <li>Microscopy</li>
-            <li>Medical imaging</li>
-            <li>Signal processing and inverse problems</li>
-            <li>Neuromorphic vision and sensing</li>
-            <li>Meta-optics and diffractive optics</li>
-            <li>Flow visualisation</li>
-            <li>Photography and consumer devices</li>
-            <li>Remote sensing and geophysics</li>
-            <li>Material and industrial imaging</li>
-            <li>Computer graphics and interactive technologies</li>
-          </ul>
-
-          <h3>Submission</h3>
-          <p>Authors wishing to showcase their work are invited to submit a <strong>one-page extended abstract</strong> covering the core motivation, methods and findings, with relevant figures. <strong>References are excluded from the one-page limit.</strong></p>
-          <p>Please include <strong>all author names and affiliations</strong> in the extended abstract. Review will be single-blind, so authors should not anonymise the PDF.</p>
-          <p>Authors are invited to use <a href="https://www.overleaf.com/project/6af0e8690925752415aa8a7a/share#659f4f09727ba6f5c29ab4538582970d8bbec46894464ee4" target="_blank" rel="noopener noreferrer">the workshop's Overleaf template</a>. We additionally provide a Google Docs <a href="https://docs.google.com/document/d/1C8un5o8rseA4X3riYrLqXSUORSe1LpQc/template/preview" target="_blank" rel="noopener noreferrer">template</a>. Extended abstracts must be submitted as <strong>PDF files through OpenReview</strong>.</p>
-          <p>During submission, you will be asked to select the domain of computational imaging most relevant to your work to support reviewer matching.</p>
-
-          <div class="call-status" aria-label="Poster submission details">
-            <dl>
-              <dt>Abstract length</dt><dd>1 page, excluding references</dd>
-              <dt>Format</dt><dd>PDF; suggested LaTeX template available</dd>
-              <dt>Review policy</dt><dd>Single-blind</dd>
-              <dt>Suggested template</dt><dd><a href="https://www.overleaf.com/project/6af0e8690925752415aa8a7a/share#659f4f09727ba6f5c29ab4538582970d8bbec46894464ee4" target="_blank" rel="noopener noreferrer">Overleaf template</a></dd>
-              <dt>Submissions open</dt><dd>Monday, 30 November 2026 (AEDT)</dd>
-              <dt>Submission deadline</dt><dd>Sunday, 10 January 2027, 11:59 pm AEDT</dd>
-              <dt>Outcome notification</dt><dd>On or before Monday, 18 January 2027 (on-time submissions)</dd>
-              <dt>Submission portal</dt><dd><a href="https://openreview.net/group?id=AusCI/2027/Workshop" target="_blank" rel="noopener noreferrer">Submit via OpenReview</a></dd>
-            </dl>
-          </div>
-
-          <h3>Review</h3>
-          <p>Each extended abstract will undergo <strong>single-blind adjudication through OpenReview</strong> by the Program Committee and will be assessed for relevance, quality and impact on the workshop.</p>
-          <p>Authors of on-time submissions will be notified of the outcomes on or before <strong>Monday, 18 January 2027</strong>. Accepted authors will receive details about poster presentation and the camera-ready extended abstract.</p>
-
-          <h3>Poster format</h3>
-          <p>Posters will be displayed digitally on <strong>16:9 screens in portrait orientation</strong>. Your poster presentation details will be provided in your acceptance notification.</p>
-          <p>There is no required poster template. You are encouraged to include the <a href="aperture_icon.svg" target="_blank" rel="noopener noreferrer">workshop emblem (SVG)</a> on your poster.</p>
-
-          <h3>Best Student Poster Award</h3>
-          <p>During the poster sessions, members of the awards committee will judge student submissions for the <strong>Best Student Poster Award (A$300)</strong>. When submitting your poster abstract, you will be asked whether the lead author is a current student to be considered for the award.</p>
-
-          <h3>Travel support</h3>
-          <p>Some travel support may be available to <strong>students and early-career researchers (ECRs)</strong> who are lead authors of accepted abstracts. During submission, you will be asked whether you would like to be considered for travel support and, if so:</p>
-          <ul>
-            <li>What are you most looking forward to gaining from attending the workshop?</li>
-            <li>What additional funding is available from your university to support your attendance?</li>
-            <li>Would you be able to attend the workshop without travel support?</li>
-          </ul>
-          <p>Travel support is limited and cannot be guaranteed for everyone. We will do our best to support broad attendance. If your institution or company can sponsor additional places, please contact the Sponsorship Chair.</p>
+        <p class="lead">The first Australian Computational Imaging Workshop will bring together the imaging community from across domains including robotics, astronomy, medical imaging, signal processing, sensing and beyond. We invite you to present your work during the workshop poster sessions to foster new connections and collaborations across the broader imaging community. The poster sessions provide an opportunity to showcase recently published or yet-to-be-published work in a non-archival format to the community.</p>
+        <p>We seek submissions focussing on computational imaging methods, technologies and hardware in, but not limited to, the following areas:</p>
+        <ul>
+          <li>Robotics</li>
+          <li>Astronomy and space technologies</li>
+          <li>Microscopy</li>
+          <li>Medical imaging</li>
+          <li>Signal processing and inverse problems</li>
+          <li>Neuromorphic vision and sensing</li>
+          <li>Meta-optics and diffractive optics</li>
+          <li>Flow visualisation</li>
+          <li>Photography and consumer devices</li>
+          <li>Remote sensing and geophysics</li>
+          <li>Material and industrial imaging</li>
+          <li>Computer graphics and interactive technologies</li>
+        </ul>
+        <p>Accepted abstracts will be made available to workshop attendees before the workshop begins, but will not form archival proceedings.</p>
+        <h3>Submission</h3>
+        <p>Authors wishing to showcase their work are invited to submit a <strong>1-page extended abstract</strong> encompassing the core motivation, methods and findings, with relevant figures. <strong>References are not included in the 1-page limit.</strong></p>
+        <p><strong>Please include all author names and affiliations in the extended abstract. Review will be single-blind, so authors should not anonymise the PDF.</strong></p>
+        <p>Authors are invited to use <a href="https://www.overleaf.com/project/6af0e8690925752415aa8a7a/share#659f4f09727ba6f5c29ab4538582970d8bbec46894464ee4" rel="noopener noreferrer" target="_blank">this Overleaf template</a>. We also provide a Google Docs<a href="https://docs.google.com/document/d/1VRjcwZTajmly5F_6-loOLfEobeli93sprnRtb4AF6rI/template/preview" rel="noopener noreferrer" target="_blank"> template</a>. Abstracts are to be submitted in PDF format to the <a href="https://openreview.net/group?id=AusCI/2027/Workshop" rel="noopener noreferrer" target="_blank">OpenReview site</a>. </p>
+        <p>During submission, you will be asked to select which domain of computational imaging is most relevant to your work to support reviewer matching.</p>
+        <p>Submissions open Monday 30 November 2026 and are due Sunday 10 January 2027, 11:59pm AEDT. We anticipate notifying authors of outcomes on or before Monday 18 January 2027.</p>
+        <h3>Review</h3>
+        <p>Each abstract submission will undergo <strong>single-blind adjudication</strong> through OpenReview by the program committee and be judged on relevance, quality and impact to the workshop. </p>
+        <h3>Poster Format</h3>
+        <p>Posters will be displayed digitally on 16:9 format screens in PORTRAIT orientation. Your poster presentation details will be provided in your acceptance notification.</p>
+        <p>We encourage you to use the <a href="https://ciworkshop.au/logo/" rel="noopener noreferrer" target="_blank">CI Workshop Logo</a> on your poster. There is no set poster template.</p>
+        <h3>Best Student Poster Award</h3>
+        <p>During the poster sessions, members of the awards committee will judge student submissions for the <strong>Best Student Poster Award (A$300). </strong>When submitting your abstract, you will be asked whether the lead author of the work is a current student to be considered for the award.</p>
+        <h3>Travel Support</h3>
+        <p>There may be some travel support available to students and ECRs who are lead authors of accepted abstracts. During submission, you will be asked whether you would like to be considered for travel support to attend the workshop, and if so:</p>
+        <ul>
+          <li>what you are most looking forward to getting out of the workshop by participating,</li>
+          <li>what additional funding is available to support your attendance from your university, and</li>
+          <li>whether you would be able to attend the workshop without receiving travel support.</li>
+        </ul>
+        <p>Please note that due to limited funds, we cannot guarantee funding to everyone. We will do our best to support the broadest attendance. If your institution or company is in a position to sponsor additional places, please contact the Sponsorship chair via hello@ciworkshop.au.</p>
         </div>
       </div>
     </section>
-
     <section id="workshops" aria-labelledby="workshops-title">
       <div class="section-head">
-        <div class="section-label"><span class="num">02</span> Community</div>
-        <h2 class="section-title" id="workshops-title">Focused workshops &amp; <em>breakout sessions</em>.</h2>
+        <div class="section-label"><span class="num">02</span></div>
+        <h2 class="section-title" id="workshops-title">Breakout Sessions</h2>
       </div>
       <div class="section-body">
         <div aria-hidden="true"></div>
         <div class="calls-prose">
-          <p class="lead">Propose a special-topic workshop, breakout session, or focused discussion group to share knowledge, upskill members, bridge disciplines, or focus attention on a particular problem.</p>
-          <p>During the second day of the workshop, a <strong>three-hour window</strong> will be allocated for these community-initiated sessions. The organising committee will select up to <strong>six topics</strong> from the proposals received.</p>
-          <p>The aim is to encourage collaboration across disciplines. We particularly welcome discussions on transferable methods, proposals organised by teams from different institutions, and sessions with hands-on participation. These are encouraged, but not required.</p>
-          <p>Let us know what you need to make your session successful, and we will do our best to accommodate.</p>
-          <div class="call-status" aria-label="Focused workshop and breakout session proposal details">
-            <dl>
-              <dt>Submission deadline</dt><dd>Friday, 8 January 2027</dd>
-              <dt>Outcome notification</dt><dd>Monday, 18 January 2027</dd>
-              <dt>Proposal form</dt><dd><a href="https://docs.google.com/forms/d/e/1FAIpQLSc4T9v_l9r8c9ZeMhtZqFmypHkPcmW5kp_aYiXd84L30FSO9Q/viewform?usp=publish-editor" target="_blank" rel="noopener noreferrer">Submit your focused-workshop or breakout-session proposal</a></dd>
-            </dl>
-          </div>
+        <p class="lead">We invite you to propose a special-topic breakout session or focused discussion group. The aim is to share knowledge, upskill members, bridge disciplines, or focus attention on a specific problem space in the Australian computational imaging community.</p>
+        <p>Up to 3 hours are set aside for community-initiated sessions, and the organising committee will select up to 6 topics from the submitted proposals to convene breakout sessions.</p>
+        <h3>Submission</h3>
+        <p>Proposals should outline the topic, format, organisers and affiliations, and any requirements for the session. Please let us know in the proposal what you need to make your session a success, and we will do our best to accommodate.</p>
+        <p>Proposals are due Friday 8 January 2027, 11:59pm AEDT. We expect to notify organisers of the outcome on or before Monday 18 January 2027.</p>
+        <p>Please submit your breakout session proposals via this <a href="https://docs.google.com/forms/d/e/1FAIpQLSc4T9v_l9r8c9ZeMhtZqFmypHkPcmW5kp_aYiXd84L30FSO9Q/viewform" rel="noopener noreferrer" target="_blank">Google Form</a>.</p>
+        <h3>Selection</h3>
+        <p>We encourage proposals that foster collaboration across disciplines, including discussions of transferable methods. To encourage as much involvement in the community as possible, preference will be given to proposals organised by cross-institution teams and to those that include hands-on interaction by workshop participants.</p>
         </div>
       </div>
     </section>
@@ -176,8 +140,8 @@
         <div>
           <h4>Explore</h4>
           <p><a href="index.html">Workshop homepage</a></p>
-          <p><a href="#posters">Call for Posters</a></p>
-          <p><a href="#workshops">Focused workshops and breakout sessions</a></p>
+          <p><a href="#posters">Posters</a></p>
+          <p><a href="#workshops">Breakout Sessions</a></p>
         </div>
       </div>
       <div class="colophon">
