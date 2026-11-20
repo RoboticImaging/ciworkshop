@@ -388,9 +388,15 @@ speakers: {
         ieee: 'IEEE SPS Member',
         photo: 'people/SJamil.jpg',
       },
+      {
+        name: 'Jialiang Shen',
+        role: 'University of Technology Sydney',
+        bio: '3D segmentation, 3D reconstruction, and computer vision.',
+        ieee: null,
+        photo: null,
+      },
     ],
   },
-
 
 
   /* ─────────────────────────────────────────────────────────────
