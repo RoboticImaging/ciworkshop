@@ -67,6 +67,7 @@ const SITE = {
       { label: 'Topics', href: '#topics', enabled: true },
       { label: 'Committee', href: '#committee', enabled: true },
       { label: 'Submit', href: 'calls.html', enabled: true },
+      { label: 'Register', href: 'https://luma.com/0j1j58am', enabled: true },
       { label: 'Get involved', href: '#involved', enabled: false },
     ],
   },
