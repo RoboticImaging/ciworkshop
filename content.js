@@ -90,7 +90,7 @@ const SITE = {
     /* info card (right side) */
     card: [
       { label: 'Date', value: '15-16 February 2027' },
-      { label: 'Where', value: 'Greater Sydney, TBC' },
+      { label: 'Where', value: 'Westmead Innovation Quarter, Sydney' },
       { label: 'Format', value: 'Talks, posters, breakout-workshops, networking, and community council' },
       { label: 'Price', value: 'Free to attend' }
     ],
