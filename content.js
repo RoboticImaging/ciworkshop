@@ -66,7 +66,7 @@ const SITE = {
       { label: 'Programme', href: '#programme', enabled: true },
       { label: 'Topics', href: '#topics', enabled: true },
       { label: 'Committee', href: '#committee', enabled: true },
-      // { label: 'Submit', href: 'calls.html', enabled: true },
+      { label: 'Submit', href: 'calls.html', enabled: true },
       { label: 'Get involved', href: '#involved', enabled: false },
     ],
   },
