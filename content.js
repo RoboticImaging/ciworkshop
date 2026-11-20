@@ -172,7 +172,7 @@ const SITE = {
     items: [
       { when: 'November 2026', what: 'Call for poster abstracts opens', now: false },
       { when: 'December 2026', what: 'Speaker programme confirmed and published', now: false },
-      { when: '[date] January 2027', what: 'Poster submission deadline', now: false },
+      { when: '10 January 2027, 11:59pm AEDT', what: 'Poster submission deadline', now: false },
       { when: '15-16 Feb 2027', what: '<strong>Event held</strong> — Greater Sydney', now: false },
     ],
   },
